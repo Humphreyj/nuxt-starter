@@ -13,7 +13,6 @@ const { title, tags, release_date, price, purchase_price, review, images } =
   <main class="flex-col-is-js w-11/12 mx-auto py-4">
     <div id="game-image" class="w-full">
       <NuxtImg
-        provider="netlify"
         :src="images.cover"
         alt="Game Image"
         class="w-full h-full rounded-t-sm"

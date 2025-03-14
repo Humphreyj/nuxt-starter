@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     // and more...
   },
   image: {
-    provider: 'netlify',
     domains: ['i.postimg.cc'],
     // other options...
   },
