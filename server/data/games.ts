@@ -17,11 +17,11 @@ export const games: GameData[] = [
     tags: ['Space', 'Adventure', 'Indie'],
     platform: 'PC',
     images: {
-      cover: '/img/starcomCover.jpg',
+      cover: 'img/starcomCover.jpg',
       screenshots: [
-        '/img/starcom/battle.jpg',
-        '/img/starcom/battle.jpg',
-        '/img/starcom/battle.jpg',
+        'img/starcom/battle.jpg',
+        'img/starcom/battle.jpg',
+        'img/starcom/battle.jpg',
       ],
     },
   },
