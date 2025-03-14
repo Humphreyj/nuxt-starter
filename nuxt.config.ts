@@ -11,6 +11,6 @@ export default defineNuxtConfig({
     // and more...
   },
   image: {
-    provider: 'netlify',
+    provider: 'netlifyImageCdn',
   },
 })
