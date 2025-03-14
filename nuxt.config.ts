@@ -10,4 +10,9 @@ export default defineNuxtConfig({
     viewer: true,
     // and more...
   },
+  image: {
+    provider: 'netlify',
+    domains: ['i.postimg.cc'],
+    // other options...
+  },
 })
