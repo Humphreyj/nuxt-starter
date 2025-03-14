@@ -27,7 +27,7 @@ const { title, tags, rating, description, images } = props.game
     class="border-2 border-gray-900 w-11/12 mx-auto rounded-md flex flex-col items-start justify-start"
   >
     <div id="game-image" class="w-full">
-      <NuxtImg
+      <img
         :src="images.cover"
         alt="Game Image"
         class="w-full h-full object-cover overflow-hidden rounded-t-sm"

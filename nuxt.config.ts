@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     // and more...
   },
   image: {
-    provider: 'ipx',
     domains: ['i.postimg.cc'],
     // other options...
   },
