@@ -17,7 +17,7 @@ export const games: GameData[] = [
     tags: ['Space', 'Adventure', 'Indie'],
     platform: 'PC',
     images: {
-      cover: 'https://i.postimg.cc/zBj77TG2/starcom-Cover.jpg',
+      cover: '/img/starcomCover.jpg',
       screenshots: [
         'https://i.postimg.cc/Y2DfSrGF/battle.jpg',
         'https://i.postimg.cc/Y2DfSrGF/battle.jpg',

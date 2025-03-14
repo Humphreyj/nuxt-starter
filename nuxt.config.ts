@@ -10,7 +10,4 @@ export default defineNuxtConfig({
     viewer: true,
     // and more...
   },
-  image: {
-    provider: 'netlify',
-  },
 })
