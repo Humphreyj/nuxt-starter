@@ -12,9 +12,9 @@ export default defineNuxtConfig({
   },
   image: {
     cloudflare: {
-      baseURL: 'https://shared.cloudflare.steamstatic.com',
+      baseURL: 'cloudflare.com',
     },
-    domains: ['i.postimg.cc'],
+    domains: ['i.postimg.cc', 'shared.cloudflare.steamstatic.com'],
     // other options...
   },
 })

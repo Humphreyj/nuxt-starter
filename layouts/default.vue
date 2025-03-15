@@ -19,7 +19,7 @@
         </li>
       </ul>
     </nav>
-    <div class="w-full pb-24">
+    <div class="w-full flex-grow flex-shrink-0 basis-auto">
       <slot />
     </div>
     <footer
