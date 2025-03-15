@@ -1,5 +1,6 @@
 <script setup>
 // Components
+import GameTag from './GameTag.vue'
 // Composables
 // import { getStyles } from '#imports';
 const props = defineProps({
@@ -37,13 +38,18 @@ const { title, tags, rating, description, images } = props.game
       id="game-info"
       class="w-full min-h-48 flex flex-col px-2 items-start justify-start gap-1 relative"
     >
-      <h3 class="font-bold text-xl">
-        {{ title }}
-      </h3>
+      <NuxtLink
+        :to="{
+          name: 'games-id',
+          params: { id: props.game.id },
+        }"
+      >
+        <h3 class="font-bold text-xl hover:underline">
+          {{ title }}
+        </h3>
+      </NuxtLink>
       <div class="flex-ic-js gap-1">
-        <p v-for="(tag, i) in tags" :key="i" class="border rounded-md">
-          {{ tag }}
-        </p>
+        <GameTag v-for="(tag, i) in tags" :key="i" :tag="tag" />
       </div>
 
       <p class="mt-2">
@@ -55,6 +61,7 @@ const { title, tags, rating, description, images } = props.game
           name: 'games-id',
           params: { id: props.game.id },
         }"
+        class="md:hidden"
       >
         <button
           class="bg-blue-500 text-white text-sm px-1 py-1 rounded absolute bottom-1 right-1"
