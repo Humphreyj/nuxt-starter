@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     // and more...
   },
   image: {
+    cloudflare: {
+      baseURL: 'https://shared.cloudflare.steamstatic.com',
+    },
     domains: ['i.postimg.cc'],
     // other options...
   },
