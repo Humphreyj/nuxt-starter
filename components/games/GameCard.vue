@@ -24,7 +24,7 @@ const { title, tags, rating, description, images } = props.game
 <template>
   <div
     id="game-container"
-    class="border-2 border-gray-900 w-11/12 mx-auto my-1 rounded-md flex flex-col items-start justify-start"
+    class="border-2 border-gray-700 w-11/12 mx-auto my-1 rounded-md flex flex-col items-start justify-start"
   >
     <div id="game-image" class="w-full">
       <NuxtImg
@@ -35,7 +35,7 @@ const { title, tags, rating, description, images } = props.game
     </div>
     <div
       id="game-info"
-      class="w-full h-48 flex flex-col px-2 items-start justify-start gap-1 relative"
+      class="w-full min-h-48 flex flex-col px-2 items-start justify-start gap-1 relative"
     >
       <h3 class="font-bold text-xl">
         {{ title }}

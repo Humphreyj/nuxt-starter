@@ -75,4 +75,54 @@ export const games: GameData[] = [
       ],
     },
   },
+  {
+    id: '78f79443-7777-4381-8779-d1470d902e14',
+    title: 'Kingdom Come: Deliverance',
+    description:
+      'Kingdom Come: Deliverance is an open-world RPG set in the Holy Roman Empire, focusing on realism and historical accuracy.',
+    review:
+      'Kingdom Come: Deliverance is an open-world RPG that immerses players in the Holy Roman Empire during the 15th century. The game emphasizes realism and historical accuracy, offering a rich narrative and detailed world. Players can engage in combat, crafting, and exploration while navigating a complex story filled with political intrigue. The graphics are stunning, and the gameplay is deep, making it a standout title in the RPG genre.',
+    rating: 'Damn Good',
+    price: 29.99,
+    purchase_price: 29.99,
+    release_date: '02-13-2018',
+    publisher: 'Warhorse Studios',
+    developer: 'Deep Silver',
+    tags: ['Medieval', 'RPG', 'Open World'],
+    platform: 'PC',
+    images: {
+      cover:
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/379430/header.jpg?t=1741619061',
+      screenshots: [
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/379430/ss_458888009ad29357b5e8d249e2130f12172a8c44.600x338.jpg?t=1741619061',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/379430/ss_7b6c8d121de17314d798d556e8803eacaab7a692.600x338.jpg?t=1741619061',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/379430/ss_486248bdfe29c98f232d0f2bd0a9a841d423960f.600x338.jpg?t=1741619061',
+      ],
+    },
+  },
+  {
+    id: 'b5ea1cd0-e6eb-480d-89f7-61b98847b017',
+    title: 'Arma 3',
+    description:
+      'Arma 3 is a military simulation game that offers a realistic combat experience in a vast open world.',
+    review:
+      'Arma 3 is a military simulation game that provides players with a realistic combat experience in a vast open world. The game features a variety of vehicles, weapons, and environments, allowing for diverse gameplay. Players can engage in single-player campaigns or multiplayer modes, making it a versatile title for fans of military simulations. The graphics are impressive, and the community support is strong, with numerous mods available to enhance the experience.',
+    rating: 'Damn Good',
+    price: 29.99,
+    purchase_price: 29.99,
+    release_date: '02-13-2018',
+    publisher: 'Bohemia Interactive',
+    developer: 'Bohemia Interactive',
+    tags: ['Military', 'Multiplayer', 'Open World'],
+    platform: 'PC',
+    images: {
+      cover:
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/107410/a33e8a9e71fdbf5e76ad7f1e7dbed06da5fe39da/header_alt_assets_27.jpg?t=1741874270',
+      screenshots: [
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/107410/ss_e9220742c6b786efc9145c58ce7b276af891e9d5.600x338.jpg?t=1741874270',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/107410/ss_089dfd05121614ca3a887f49e89c14fa210847ac.600x338.jpg?t=1741874270',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/107410/ss_d705d125b0bf4e8d934c8743ef1a26e851fe6cf4.600x338.jpg?t=1741874270',
+      ],
+    },
+  },
 ]
