@@ -10,26 +10,22 @@ const { title, tags, release_date, price, purchase_price, review, images } =
 </script>
 
 <template>
-  <main class="flex-col-is-js w-11/12 mx-auto py-4">
-    <div id="game-image" class="w-full">
+  <main class="flex-col-is-js w-11/12 h-screen md:w-2/3 mx-auto py-4">
+    <div class="w-full">
       <NuxtImg
         :src="images.cover"
         alt="Game Image"
         class="w-full h-full rounded-t-sm"
       />
-      <div class="flex-ic-je gap-2 w-full">
-        <p
-          v-for="(screenshot, i) in images.screenshots"
-          :key="i"
-          class="border rounded-md"
-        >
-          <NuxtImg
-            :src="screenshot"
-            alt="Game Image"
-            class="w-32 h-24 object-cover overflow-hidden"
-          />
-        </p>
-      </div>
+    </div>
+    <div class="flex-ic-je gap-2 w-full my-1">
+      <NuxtImg
+        v-for="(screenshot, i) in images.screenshots"
+        :key="i"
+        :src="screenshot"
+        alt="Game Image"
+        class="w-32 h-24 object-cover overflow-hidden"
+      />
     </div>
     <section class="w-full">
       <div

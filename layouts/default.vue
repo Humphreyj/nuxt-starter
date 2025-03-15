@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <main class="w-full h-full">
+  <main class="w-full min-h-screen relative flex flex-col">
     <nav
       class="w-full h-12 border-b-2 border-gray-900 flex items-center justify-between px-2"
     >
@@ -19,6 +19,13 @@
         </li>
       </ul>
     </nav>
-    <slot />
+    <div class="w-full pb-24">
+      <slot />
+    </div>
+    <footer
+      class="w-full h-16 border-t-2 border-gray-900 shrink-0 -mt-16 bg-gray-950 flex items-center justify-center"
+    >
+      <p class="text-sm text-gray-400">© 2023 Damn Good Games</p>
+    </footer>
   </main>
 </template>

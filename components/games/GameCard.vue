@@ -24,7 +24,7 @@ const { title, tags, rating, description, images } = props.game
 <template>
   <div
     id="game-container"
-    class="border-2 border-gray-900 w-11/12 mx-auto rounded-md flex flex-col items-start justify-start"
+    class="border-2 border-gray-900 w-11/12 mx-auto my-1 rounded-md flex flex-col items-start justify-start"
   >
     <div id="game-image" class="w-full">
       <NuxtImg
@@ -55,10 +55,9 @@ const { title, tags, rating, description, images } = props.game
           name: 'games-id',
           params: { id: props.game.id },
         }"
-        class="absolute top-0 left-0 w-full h-full"
       >
         <button
-          class="bg-blue-500 text-white text-sm px-1 py-1 rounded absolute bottom-1"
+          class="bg-blue-500 text-white text-sm px-1 py-1 rounded absolute bottom-1 right-1"
         >
           Read More
         </button>
