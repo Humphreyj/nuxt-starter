@@ -13,7 +13,7 @@ const { title, tags, release_date, price, purchase_price, review, images } =
 </script>
 
 <template>
-  <main class="flex-col-is-js w-11/12 h-screen md:w-2/3 mx-auto py-4">
+  <main class="flex-col-is-js w-11/12 h-screen md:w-1/2 mx-auto py-4">
     <div class="w-full">
       <NuxtImg
         :src="images.cover"

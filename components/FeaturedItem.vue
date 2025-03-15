@@ -40,7 +40,7 @@ const { title, summary, imageUrl, author, created_at } = props.featured
       class="w-full h-full p-2 flex flex-col-is-je gap-2 bg-slate-700"
     >
       <h3
-        class="text-2xl font-bold text-white border-b-2 md:border-b-0 hover:border-b-2"
+        class="text-2xl font-bold text-white border-b-2 md:border-b-0 hover:border-b"
       >
         {{ title }}
       </h3>
