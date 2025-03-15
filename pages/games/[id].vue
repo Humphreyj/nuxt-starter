@@ -1,6 +1,8 @@
 <script setup>
 // Components
 import GameTag from '~/components/games/GameTag.vue'
+// Utils
+import { handleFormat } from '#imports'
 // const props = defineProps({})
 // const emit = defineEmits()
 const { id } = useRoute().params
@@ -36,11 +38,13 @@ const { title, tags, release_date, price, purchase_price, review, images } =
         <h3 class="font-bold text-xl">
           {{ title }}
         </h3>
-        <p class="text-sm text-gray-500">Price: {{ price }}</p>
-        <p class="text-sm text-gray-500">
+        <p class="text-sm text-gray-400">Price: {{ price }}</p>
+        <p class="text-sm text-gray-400">
           Purchase Price: {{ purchase_price }}
         </p>
-        <p class="text-sm text-gray-500">Released: {{ release_date }}</p>
+        <p class="text-sm text-gray-400">
+          Released: {{ handleFormat(release_date, 'date') }}
+        </p>
         <div class="flex-ic-js gap-1">
           <GameTag v-for="(tag, i) in tags" :key="i" :tag="tag" />
         </div>

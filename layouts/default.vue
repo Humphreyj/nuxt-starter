@@ -13,7 +13,7 @@
       <slot />
     </div>
     <footer
-      class="w-full h-16 border-t-2 border-gray-900 shrink-0 -mt-16 bg-headerBg flex items-center justify-center"
+      class="w-full h-16 border-t-2 border-gray-900 shrink-0 bg-headerBg flex items-center justify-center"
     >
       <p class="text-sm text-primaryText">© 2025 Damn Good Games</p>
     </footer>
