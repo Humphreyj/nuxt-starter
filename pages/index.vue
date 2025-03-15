@@ -15,7 +15,9 @@ const gamesList = ref(data.value.games || [])
   >
     <section class="w-full flex flex-col items-start justify-start">
       <h2 class="font-bold text-2xl pl-2 underline w-max">Recent Posts</h2>
-      <GameCard v-for="game in gamesList" :key="game.id" :game="game" />
+      <div class="w-full pb-20">
+        <GameCard v-for="game in gamesList" :key="game.id" :game="game" />
+      </div>
     </section>
   </div>
 </template>
