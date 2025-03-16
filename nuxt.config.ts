@@ -6,10 +6,9 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxt/image'],
   css: ['~/assets/css/main.css'],
   image: {
-    provider: 'netlify',
-    // cloudflare: {
-    //   baseURL: 'cloudflare.com',
-    // },
+    cloudflare: {
+      baseURL: 'cloudflare.com',
+    },
     domains: ['i.postimg.cc', 'shared.cloudflare.steamstatic.com'],
     // other options...
   },

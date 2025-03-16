@@ -17,7 +17,7 @@ export const games: GameData[] = [
     tags: ['Space', 'Adventure', 'Indie'],
     platform: 'PC',
     images: {
-      cover: '/img/starcom/starcomCover.jpg',
+      cover: 'https://i.postimg.cc/zBj77TG2/starcom-Cover.jpg',
       screenshots: [
         'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/863590/ss_558d48279558702e4998799a8ece61a028058383.1920x1080.jpg?t=1723657109',
         'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/863590/ss_3eebe37099169063554fdd286a2622dac38d0de3.1920x1080.jpg?t=1723657109',
@@ -41,7 +41,8 @@ export const games: GameData[] = [
     tags: ['Survival', 'Adventure', 'Indie'],
     platform: 'PC',
     images: {
-      cover: '/img/valheim/valheimCover.jpg',
+      cover:
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/892970/header.jpg?t=1738051073',
       screenshots: [
         'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/892970/ss_f4ea4f0f93cc8b38042f6d5916413da185ec221c.1920x1080.jpg?t=1738051073',
         'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/892970/ss_ad81cc7ced8585ad344ba50e9d0b4bf9c597e62e.1920x1080.jpg?t=1738051073',
