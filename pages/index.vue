@@ -17,6 +17,7 @@
       <p class="font-display">No bullshit reviews and news.</p>
       <p class="text-[12px] font-display">Some bullshit opinions.</p>
     </div>
+    <img src="/img/DGGlogo.png" alt="" />
     <section class="flex-col-ic-jc gap-2 w-full">
       <div class="w-full flex flex-ic-js gap-2">
         <div class="size-6 rounded-sm bg-[#B41D2F] bg-opacity-60"></div>

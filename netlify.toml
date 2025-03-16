@@ -1,3 +1,5 @@
+[build]
+  command = "npm run generate" # how to build your project
 [[redirects]]
   from = "/*"
   to = "/index.html"
