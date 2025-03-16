@@ -12,6 +12,9 @@ const toggle = () => {
   open.value = !open.value
   emit('toggle', open.value)
 }
+const test = () => {
+  console.log('test')
+}
 </script>
 
 <template>
@@ -20,6 +23,7 @@ const toggle = () => {
       color="neutral"
       variant="subtle"
       trailing-icon="lucide:align-justify"
+      @click="test"
     />
 
     <template #content>
