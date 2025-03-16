@@ -12,5 +12,4 @@ export default defineNuxtConfig({
     domains: ['i.postimg.cc', 'shared.cloudflare.steamstatic.com'],
     // other options...
   },
-  target: 'static',
 })
