@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
+  target: 'static',
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   modules: ['@nuxt/image', '@nuxt/ui'],
@@ -11,8 +12,5 @@ export default defineNuxtConfig({
     },
     domains: ['i.postimg.cc', 'shared.cloudflare.steamstatic.com'],
     // other options...
-  },
-  generate: {
-    routes: ['/games', '/about'],
   },
 })

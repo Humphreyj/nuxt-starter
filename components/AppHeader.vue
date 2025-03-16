@@ -20,7 +20,6 @@ const toggleSidebar = () => {
         alt="Damn Good Logo"
         class="w-20"
       />
-      <button @click.native="openSidebar">toggle</button>
       <UiSidedrawer
         v-if="showSidebar"
         :show-sidebar="showSidebar"
