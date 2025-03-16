@@ -20,11 +20,7 @@ const toggleSidebar = () => {
         alt="Damn Good Logo"
         class="w-20"
       />
-      <UiSidedrawer
-        v-if="showSidebar"
-        :show-sidebar="showSidebar"
-        @toggle="toggleSidebar"
-      />
+      <UiSidedrawer :show-sidebar="showSidebar" @toggle="toggleSidebar" />
     </div>
   </header>
 </template>
