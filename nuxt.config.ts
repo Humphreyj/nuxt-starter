@@ -12,5 +12,7 @@ export default defineNuxtConfig({
     domains: ['i.postimg.cc', 'shared.cloudflare.steamstatic.com'],
     // other options...
   },
-  ssr: false,
+  generate: {
+    routes: ['/games', '/about'],
+  },
 })
