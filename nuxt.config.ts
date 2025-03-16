@@ -3,17 +3,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/image'],
-  tailwindcss: {
-    cssPath: [`~/assets/css/tailwind.css`, { injectPosition: 'first' }],
-    exposeConfig: true,
-    viewer: true,
-    // and more...
-  },
+  modules: ['@nuxt/ui', '@nuxt/image'],
+  css: ['~/assets/css/main.css'],
   image: {
-    cloudflare: {
-      baseURL: 'cloudflare.com',
-    },
+    // cloudflare: {
+    //   baseURL: 'cloudflare.com',
+    // },
     domains: ['i.postimg.cc', 'shared.cloudflare.steamstatic.com'],
     // other options...
   },

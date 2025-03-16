@@ -5,7 +5,7 @@ import { handleFormat } from '#imports'
 const props = defineProps({
   featured: {
     type: Object,
-    required: true,
+    required: false,
     default: () => ({
       id: 0,
       title: 'The perks of the simple life',

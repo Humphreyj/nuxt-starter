@@ -1,9 +1,9 @@
 <script lang="js" setup></script>
 
 <template>
-  <div class="w-full">
+  <UApp>
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
-  </div>
+  </UApp>
 </template>

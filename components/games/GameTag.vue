@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <p class="p-1 text-xs rounded-md bg-[#5BAAD8] text-[#5BAAD8] bg-opacity-35">
+  <p class="p-1 text-xs rounded-md bg-tag-color/35 text-tag-color">
     {{ tag }}
   </p>
 </template>

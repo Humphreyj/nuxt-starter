@@ -1,0 +1,11 @@
+@import 'tailwindcss' theme(static);
+@import '@nuxt/ui';
+@import './flexHelpers.css';
+
+@theme static {
+  --font-title: 'Albert Sans', 'sans-serif';
+  --font-display: 'Red Hat Display', 'sans-serif';
+  --color-header: #334155;
+  --color-primary-text: #edf0f4;
+  --color-tag-color: #5baad8;
+}
