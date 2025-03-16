@@ -6,7 +6,7 @@
 
 <template>
   <header class="w-full h-16 border-b-2 border-gray-900 bg-headerBg px-2 py-1">
-    <div class="w-3/4 mx-auto flex items-center justify-between px-2">
+    <div class="w-full md:w-3/4 mx-auto flex items-center justify-between px-2">
       <img
         src="https://i.postimg.cc/c4GngCHH/DGGLogo.png"
         alt="Damn Good Logo"
