@@ -3,8 +3,12 @@
 // const props = defineProps({})
 // const emit = defineEmits()
 const showSidebar = ref(false)
+const openSidebar = () => {
+  showSidebar.value = true
+}
 const toggleSidebar = () => {
-  showSidebar.value = false
+  console.log('showSidebar', showSidebar.value)
+  showSidebar.value = !showSidebar.value
 }
 </script>
 
@@ -16,8 +20,12 @@ const toggleSidebar = () => {
         alt="Damn Good Logo"
         class="w-20"
       />
-
-      <UiSidedrawer :show-sidebar="showSidebar" @toggle="toggleSidebar" />
+      <button @click="openSidebar">toggle</button>
+      <UiSidedrawer
+        v-if="showSidebar"
+        :show-sidebar="showSidebar"
+        @toggle="toggleSidebar"
+      />
     </div>
   </header>
 </template>

@@ -19,13 +19,6 @@ const test = () => {
 
 <template>
   <UDrawer v-model:open="open" direction="left">
-    <UButton
-      color="neutral"
-      variant="subtle"
-      trailing-icon="lucide:align-justify"
-      @click="test"
-    />
-
     <template #content>
       <section
         class="w-full min-w-[300px] h-full flex-col-is-js py-2 px-4 pb-12"

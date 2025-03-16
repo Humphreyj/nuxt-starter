@@ -2,8 +2,10 @@
 
 <template>
   <UApp>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <div class="w-full">
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>
   </UApp>
 </template>
