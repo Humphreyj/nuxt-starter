@@ -19,11 +19,6 @@ const { items } = toRefs(props)
 
 <template>
   <UCarousel v-slot="{ item }" auto-height :items="items" class="w-full h-full">
-    <NuxtImg
-      :src="item"
-      class="object-cover overflow-hidden w-full h-full"
-      height="500"
-      width="600"
-    />
+    <NuxtImg :src="item" height="500" width="600" />
   </UCarousel>
 </template>

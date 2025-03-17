@@ -16,19 +16,10 @@ const showScreenshotsCarousel = ref(false)
 const toggleScreenshotsCarousel = () => {
   showScreenshotsCarousel.value = !showScreenshotsCarousel.value
 }
-const openScreenshotsCarousel = (index) => {}
-const items = [
-  'https://picsum.photos/640/640?random=1',
-  'https://picsum.photos/640/640?random=2',
-  'https://picsum.photos/640/640?random=3',
-  'https://picsum.photos/640/640?random=4',
-  'https://picsum.photos/640/640?random=5',
-  'https://picsum.photos/640/640?random=6',
-]
 </script>
 
 <template>
-  <main class="flex-col-is-js w-11/12 h-screen md:w-1/3 mx-auto py-4">
+  <main class="flex-col-is-js w-11/12 h-screen md:w-[40%] mx-auto py-4">
     <div class="w-full">
       <NuxtImg
         :src="images.cover"
@@ -48,7 +39,7 @@ const items = [
       <UModal
         v-model:open="showScreenshotsCarousel"
         :title="title"
-        class="w-full"
+        class="w-full h-[50vh]"
       >
         <template #body>
           <ScreenshotCarousel
