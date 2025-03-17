@@ -3,9 +3,7 @@
 // const props = defineProps({})
 // const emit = defineEmits()
 const showSidebar = ref(false)
-const test = () => {
-  console.log('test')
-}
+
 const toggleSidebar = () => {
   console.log('showSidebar', showSidebar.value)
   showSidebar.value = !showSidebar.value
@@ -19,7 +17,6 @@ const toggleSidebar = () => {
         src="https://i.postimg.cc/c4GngCHH/DGGLogo.png"
         alt="Damn Good Logo"
         class="w-20"
-        @click="test"
       />
       <UiSidedrawer :show-sidebar="showSidebar" @toggle="toggleSidebar" />
     </div>

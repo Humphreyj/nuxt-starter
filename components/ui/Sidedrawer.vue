@@ -35,7 +35,7 @@ const test = () => {
           alt="Damn Good Logo"
           class="w-32"
         />
-        <!-- <nav>
+        <nav>
           <ul class="flex-col-is-js gap-4 text-primary-text text-lg pl-2">
             <li>
               <nuxt-link to="/" @click="toggle">Home</nuxt-link>
@@ -47,7 +47,7 @@ const test = () => {
               <nuxt-link to="/about" @click="toggle">About</nuxt-link>
             </li>
           </ul>
-        </nav> -->
+        </nav>
       </section>
     </template>
   </UDrawer>

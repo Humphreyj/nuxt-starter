@@ -2,8 +2,8 @@
 
 export default defineNuxtConfig({
   app: {
-    baseURL: '/', // Ensure this is correct
-    buildAssetsDir: '/_nuxt/', // Force correct asset path
+    baseURL: '/',
+    buildAssetsDir: '/_nuxt/',
   },
   compatibilityDate: '2025-01-01',
   devtools: { enabled: true },
