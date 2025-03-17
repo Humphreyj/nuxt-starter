@@ -5,7 +5,6 @@
 const showSidebar = ref(false)
 
 const toggleSidebar = () => {
-  console.log('showSidebar', showSidebar.value)
   showSidebar.value = !showSidebar.value
 }
 </script>

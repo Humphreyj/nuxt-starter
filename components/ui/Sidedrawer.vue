@@ -12,9 +12,6 @@ const toggle = () => {
   open.value = !open.value
   emit('toggle', open.value)
 }
-const test = () => {
-  console.log('test')
-}
 </script>
 
 <template>
@@ -23,7 +20,6 @@ const test = () => {
       color="neutral"
       variant="subtle"
       trailing-icon="lucide:align-justify"
-      @click="test"
     />
 
     <template #content>
@@ -35,16 +31,42 @@ const test = () => {
           alt="Damn Good Logo"
           class="w-32"
         />
-        <nav>
-          <ul class="flex-col-is-js gap-4 text-primary-text text-lg pl-2">
+        <nav class="py-4">
+          <ul
+            class="flex-col-is-js gap-4 text-primary-text text-lg font-semibold pl-2"
+          >
             <li>
-              <nuxt-link to="/" @click="toggle">Home</nuxt-link>
+              <nuxt-link to="/" @click="toggle">
+                <div class="flex-ic-js gap-2">
+                  <UIcon
+                    name="lucide:home"
+                    class="text-2xl text-primary-text"
+                  />
+                  <span class="">Home</span>
+                </div>
+              </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/games" @click="toggle">Games</nuxt-link>
+              <nuxt-link to="/games" @click="toggle">
+                <div class="flex-ic-js gap-2">
+                  <UIcon
+                    name="lucide:gamepad-2"
+                    class="text-2xl text-primary-text"
+                  />
+                  <span class="">Games</span>
+                </div>
+              </nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/about" @click="toggle">About</nuxt-link>
+              <nuxt-link to="/about" @click="toggle">
+                <div class="flex-ic-js gap-2">
+                  <UIcon
+                    name="lucide:ghost"
+                    class="text-2xl text-primary-text"
+                  />
+                  <span class="">About</span>
+                </div>
+              </nuxt-link>
             </li>
           </ul>
         </nav>

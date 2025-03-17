@@ -1,6 +1,7 @@
 <script setup>
 // Components
 import GameTag from '~/components/games/GameTag.vue'
+import ScreenshotCarousel from '~/components/games/ScreenshotCarousel.vue'
 // Utils
 import { handleFormat } from '#imports'
 // const props = defineProps({})
@@ -10,10 +11,24 @@ const { data } = await useFetch(`/api/games/${id}`)
 const game = ref(data.value || {})
 const { title, tags, release_date, price, purchase_price, review, images } =
   game.value
+
+const showScreenshotsCarousel = ref(false)
+const toggleScreenshotsCarousel = () => {
+  showScreenshotsCarousel.value = !showScreenshotsCarousel.value
+}
+const openScreenshotsCarousel = (index) => {}
+const items = [
+  'https://picsum.photos/640/640?random=1',
+  'https://picsum.photos/640/640?random=2',
+  'https://picsum.photos/640/640?random=3',
+  'https://picsum.photos/640/640?random=4',
+  'https://picsum.photos/640/640?random=5',
+  'https://picsum.photos/640/640?random=6',
+]
 </script>
 
 <template>
-  <main class="flex-col-is-js w-11/12 h-screen md:w-1/2 mx-auto py-4">
+  <main class="flex-col-is-js w-11/12 h-screen md:w-1/3 mx-auto py-4">
     <div class="w-full">
       <NuxtImg
         :src="images.cover"
@@ -27,9 +42,24 @@ const { title, tags, release_date, price, purchase_price, review, images } =
         :key="i"
         :src="screenshot"
         alt="Game Image"
-        class="w-32 h-24 object-cover overflow-hidden"
+        class="w-32 h-24 md:w-48 md:h-32 object-cover overflow-hidden"
+        @click="toggleScreenshotsCarousel"
       />
+      <UModal
+        v-model:open="showScreenshotsCarousel"
+        :title="title"
+        class="w-full"
+      >
+        <template #body>
+          <ScreenshotCarousel
+            v-if="images.screenshots.length"
+            :items="images.screenshots"
+            class="w-full mx-auto"
+          />
+        </template>
+      </UModal>
     </div>
+
     <section class="w-full">
       <div
         id="game-info"
