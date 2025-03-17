@@ -1,15 +1,14 @@
 <script setup>
 // Components
 const props = defineProps({
-  feature: {
+  article: {
     type: Object,
     required: false,
     default: () => ({
       id: 0,
-      title: 'The perks of the simple life',
+      title: 'Literally a sandbox',
       summary: 'Play trucks with your homies.',
-      imageUrl:
-        'https://cdn1.epicgames.com/spt-assets/a09a1e719daa45c992dee7dd284ed51f/roadcraft-1atx7.jpg',
+      imageUrl: 'https://i.postimg.cc/fRwwrnrK/roadcraft-Cover.jpg',
       created_at: '2023-10-17T00:00:00.000Z',
       author: {
         id: 0,
@@ -20,20 +19,25 @@ const props = defineProps({
   },
 })
 // const emit = defineEmits()
-const { title, summary, imageUrl, author, created_at } = props.feature
+const { title, summary, imageUrl, author, created_at } = props.article
 </script>
 
 <template>
-  <div class="@container w-full flex-col-is-js">
+  <div
+    class="w-full bg-gray-400 flex-col-is-js border-2 rounded-sm border-gray-500/80"
+  >
     <div class="w-full">
       <NuxtImg :src="imageUrl" class="object-contain w-full h-full"></NuxtImg>
     </div>
     <div
       id="article-info"
-      class="grid grid-cols-1 grid-rows-[auto_1fr_auto_auto] bg-header px-1 py-2 w-full"
+      class="grid grid-cols-1 grid-rows-[auto_auto_1fr_auto_auto] bg-header px-1 py-2 w-full"
     >
-      <div class="row-span-2 grid grid-rows-subgrid">
-        <p class="row-start-2 w-11/12 min-h-16">
+      <h3 class="text-xl font-bold text-white border-b w-max">
+        {{ title }}
+      </h3>
+      <div class="row-span-2 grid grid-rows-subgrid gap-2">
+        <p class="row-start-3 w-[98%] min-h-16">
           {{ summary }}
         </p>
       </div>

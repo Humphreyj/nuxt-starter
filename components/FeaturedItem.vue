@@ -28,7 +28,7 @@ const { title, summary, imageUrl, author, created_at } = props.featured
 
 <template>
   <article
-    class="w-full bg-gray-400 flex-col-is-jc border-2 rounded-sm border-gray-700"
+    class="w-full bg-gray-400 flex-col-is-jc border-2 rounded-sm border-gray-500/80"
   >
     <div id="featured-image-container" class="w-full h-full relative">
       <NuxtImg
@@ -41,12 +41,10 @@ const { title, summary, imageUrl, author, created_at } = props.featured
       id="featured-info"
       class="w-full h-full p-2 pb-3 flex flex-col-is-je gap-2 bg-slate-700"
     >
-      <h3
-        class="text-2xl font-bold text-white border-b-2 md:border-b-0 hover:border-b"
-      >
+      <h3 class="text-xl font-bold text-white border-b">
         {{ title }}
       </h3>
-      <p class="text-sm text-white w-[98%]">
+      <p class="text-white w-[98%]">
         {{ summary }}
       </p>
       <div class="flex-ic-js gap-2 mt-2">

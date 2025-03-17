@@ -7,7 +7,7 @@ import FeaturedSection from '~/components/articles/FeaturedSection.vue'
 
 <template>
   <div
-    class="h-full w-full md:w-1/3 mx-auto flex flex-col items-start justify-start px-4 pb-12"
+    class="h-full w-full md:w-1/3 mx-auto flex flex-col items-start justify-start pb-12"
   >
     <div
       class="w-max mx-auto border-b-2 p-2 rounded-md my-4 border-gray-900 bg-header flex-col-ic-jc px-2 py-1"
