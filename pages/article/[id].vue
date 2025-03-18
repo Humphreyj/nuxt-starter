@@ -25,12 +25,12 @@ const { title, summary, content, imageUrl, created_at, author } = article.value
         :created_at="created_at"
         :article-detail="true"
       />
-      <div class="w-full h-1 bg-gray-500/80 my-2"></div>
+      <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
       <section
         v-for="(section, i) in content"
         :key="i"
         id="article-content"
-        class="w-full"
+        class="w-full pb-6"
       >
         <h3 class="font-bold text-2xl my-1">{{ section.title }}</h3>
         <p>{{ section.text }}</p>

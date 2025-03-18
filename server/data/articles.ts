@@ -13,6 +13,10 @@ export const articles = [
         title: 'Space Travel That’s… Not Really Space Travel',
         text: 'When Bethesda teased Starfield, many players imagined seamlessly piloting their ship between planets, engaging in real-time space travel and thrilling dogfights. Instead, the experience is heavily menu-driven, with loading screens breaking up every transition. There’s no real sense of scale or immersion in space travel—it feels more like fast-traveling through a glorified menu than actually navigating a galaxy.',
       },
+      {
+        title: 'Could Have Been More, Settled for Less',
+        text: 'Starfield is by no means a bad game. It has moments of brilliance—some well-crafted quests, engaging combat, and an intriguing aesthetic. But it could have been so much more. Bethesda played it safe when it had the chance to revolutionize the sci-fi RPG genre. Instead of feeling like a giant leap forward, Starfield lands as a cautious step—one that didn’t quite reach the stars. If Bethesda had just tried a little harder, Starfield could have been a defining game of the decade. Instead, it remains a solid but unremarkable entry in the RPG space.',
+      },
     ],
     imageUrl: 'https://i.postimg.cc/Z5KSLPWs/STARFIELD-MAIN-1.jpg',
     created_at: '2023-10-17T00:00:00.000Z',
