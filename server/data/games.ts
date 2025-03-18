@@ -195,7 +195,7 @@ export const games: GameData[] = [
     platform: 'PC',
     images: {
       cover:
-        'https://clan.cloudflare.steamstatic.com/images//37295600/79f8c5f2476e2f5eaf065512adaf6fe6d9ce0044.jpg',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1172620/header.jpg?t=1740060616',
       screenshots: [
         'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1172620/ss_748007668988e219ec69845a470d5e701a87e0d2.1920x1080.jpg?t=1740060616',
         'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1172620/ss_6e8ab9a6fe0bc6b9a11fe55e0c9c8bed0c046639.1920x1080.jpg?t=1740060616',
