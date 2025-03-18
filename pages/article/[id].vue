@@ -9,7 +9,7 @@ const { title, summary, content, imageUrl, created_at, author } = article.value
 </script>
 
 <template>
-  <article class="flex-col-is-js w-full">
+  <article class="flex-col-is-js w-full md:w-1/2 mx-auto">
     <div class="w-full">
       <NuxtImg :src="imageUrl" class="object-contain w-full h-full"></NuxtImg>
     </div>
