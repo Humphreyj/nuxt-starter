@@ -33,29 +33,22 @@ const { title, summary, imageUrl, author, created_at } = props.article
       id="article-info"
       class="grid grid-cols-1 grid-rows-[auto_auto_1fr_auto_auto] bg-header px-1 py-2 w-full"
     >
-      <h3 class="text-xl font-bold text-white border-b w-max">
-        {{ title }}
-      </h3>
+      <NuxtLink
+        :to="{
+          name: 'article-id',
+          params: { id: props.article.id },
+        }"
+      >
+        <h3 class="text-xl font-bold text-white border-b w-max hover:underline">
+          {{ title }}
+        </h3>
+      </NuxtLink>
       <div class="row-span-2 grid grid-rows-subgrid gap-2">
         <p class="row-start-3 w-[98%] min-h-16">
           {{ summary }}
         </p>
       </div>
-      <div class="flex-ic-js gap-2 mt-2">
-        <div class="size-10 rounded-full bg-gray-500">
-          <NuxtImg
-            :src="author.imageUrl"
-            alt="Author Image"
-            class="w-full h-full object-cover object-center border border-gray-400 rounded-full"
-          />
-        </div>
-        <div class="flex-col-is-js">
-          <p class="text-sm text-white">{{ author.name }}</p>
-          <p class="text-xs text-gray-300">
-            {{ handleFormat(created_at, 'date') }}
-          </p>
-        </div>
-      </div>
+      <AuthorComponent :author="author" :created_at="created_at" />
     </div>
   </div>
 </template>
