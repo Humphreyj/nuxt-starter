@@ -5,11 +5,29 @@
 const { id } = useRoute().params
 const { data } = await useFetch(`/api/articles/${id}`)
 const article = ref(data.value || {})
-const { title, summary, content, imageUrl, created_at, author } = article.value
+const { title, summary, content, imageUrl, created_at, author, gameId } =
+  article.value
+// Fetch game data only after article is loaded
+const game = ref({})
+if (gameId) {
+  const { data: gameData } = await useFetch(`/api/games/${gameId}`)
+  game.value = gameData.value || {}
+}
 </script>
 
 <template>
   <article class="flex-col-is-js w-full md:w-1/2 mx-auto">
+    <NuxtLink
+      :to="{
+        name: 'games-id',
+        params: { id: game.id },
+      }"
+    >
+      <h2 class="font-emibold underline pl-2 text-white text-center my-1">
+        {{ game.title }}
+      </h2>
+    </NuxtLink>
+
     <div class="w-full">
       <NuxtImg :src="imageUrl" class="object-contain w-full h-full"></NuxtImg>
     </div>

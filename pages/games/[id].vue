@@ -9,8 +9,16 @@ import { handleFormat } from '#imports'
 const { id } = useRoute().params
 const { data } = await useFetch(`/api/games/${id}`)
 const game = ref(data.value || {})
-const { title, tags, release_date, price, purchase_price, review, images } =
+const { title, tags, release_date, price, platform, description, images } =
   game.value
+const gameArticles = ref([])
+
+if (id) {
+  const { data: articlesData } = await useFetch(
+    `/api/articles/getArticlesByGame?gameId=${id}`,
+  )
+  gameArticles.value = articlesData.value.articles || []
+}
 
 const showScreenshotsCarousel = ref(false)
 const toggleScreenshotsCarousel = () => {
@@ -60,9 +68,7 @@ const toggleScreenshotsCarousel = () => {
           {{ title }}
         </h3>
         <p class="text-sm text-gray-400">Price: {{ price }}</p>
-        <p class="text-sm text-gray-400">
-          Purchase Price: {{ purchase_price }}
-        </p>
+        <p class="text-sm text-gray-400">Platform: {{ platform }}</p>
         <p class="text-sm text-gray-400">
           Released: {{ handleFormat(release_date, 'date') }}
         </p>
@@ -71,6 +77,30 @@ const toggleScreenshotsCarousel = () => {
         </div>
       </div>
     </section>
-    <section id="review">{{ review }}</section>
+    <section id="review" class="flex-col-is-js w-full">
+      <p class="my-2">{{ description }}</p>
+      <h3 class="font-bold text-xl">Articles</h3>
+      <div
+        v-for="(article, i) in gameArticles"
+        :key="i"
+        class="w-full border flex-ic-jb p-2"
+      >
+        <p class="text-sm">{{ article.title }}</p>
+        <NuxtLink
+          :to="{
+            name: 'article-id',
+            params: { id: article.id },
+          }"
+        >
+          <UIcon
+            name="lucide:chevrons-right"
+            class="text-gray-400 size-6"
+            @click="
+              $router.push({ name: 'articles-id', params: { id: article.id } })
+            "
+          />
+        </NuxtLink>
+      </div>
+    </section>
   </main>
 </template>

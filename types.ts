@@ -5,7 +5,7 @@ export interface GameData {
   review: string
   rating: string
   price: number
-  purchase_price: number
+  purchase_price: number | null
   release_date: string
   publisher: string
   developer: string
@@ -15,6 +15,7 @@ export interface GameData {
     cover: string
     screenshots: string[]
   }
+  articles: { type: string; id: string }[]
 }
 
 export interface GameReview {

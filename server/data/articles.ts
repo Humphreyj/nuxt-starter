@@ -1,6 +1,7 @@
 export const articles = [
   {
     id: 'aa671f83-4f32-42c8-9699-5f15ea01377f',
+    gameId: 'ad42460c-7656-4fa1-8a4e-41d06654gg11',
     title: 'A tale of not trying very hard.',
     summary:
       'Have you ever had an awesome idea, and the resources to pull it off, but then just said fuck it?',
@@ -28,6 +29,7 @@ export const articles = [
   },
   {
     id: '7abbee39-9d8e-46dc-80bd-fb9b3a7f7fad',
+    gameId: 'ad42460c-7656-4fa1-8a4e-41d06654gg09',
     title: "Where we're going, we don't need trees.",
     summary: 'Deforest entire regions while playing trucks with your homies.',
     content: [
@@ -54,6 +56,7 @@ export const articles = [
   },
   {
     id: 'e861f901-e1b6-428f-9e0c-ac4f7b1bd315',
+    gameId: '78f79443-7777-4381-8779-d1470d902e14',
     title: 'Longing for the simple life',
     summary:
       'This is not anything right now, but it could be. Fishing would be nice.',
@@ -82,6 +85,7 @@ export const articles = [
   },
   {
     id: '86d22bf6-bcd1-4a8d-b209-ea13ed7cd5bb',
+    gameId: 'b5ea1cd0-e6eb-480d-89f7-61b96647b099',
     title: 'Bring me my brown pants!',
     summary:
       'Set sail for a true adventure. Once you leave the dock, anything can happen.',

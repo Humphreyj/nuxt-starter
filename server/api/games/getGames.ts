@@ -3,6 +3,8 @@ export default defineEventHandler(async (event) => {
   // return a list of GameData
 
   return {
-    games: games,
+    games: games.sort((a, b) => {
+      return b.title > a.title ? -1 : 1
+    }),
   }
 })
