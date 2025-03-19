@@ -8,7 +8,7 @@ const articleList = ref(data.value.articles || [])
 </script>
 
 <template>
-  <section class="flex-col-is-js w-full gap-4 px-1">
+  <section class="flex-col-is-js w-full gap-4 px-4">
     <ArticleCard
       v-for="article in articleList"
       :key="article.id"

@@ -94,10 +94,7 @@ const toggleScreenshotsCarousel = () => {
         >
           <UIcon
             name="lucide:chevrons-right"
-            class="text-gray-400 size-6"
-            @click="
-              $router.push({ name: 'articles-id', params: { id: article.id } })
-            "
+            class="text-gray-400 size-6 translate-y-1"
           />
         </NuxtLink>
       </div>
