@@ -4,6 +4,7 @@ import ArticleCard from './ArticleCard.vue'
 // const props = defineProps({})
 // const emit = defineEmits()
 const { data } = await useFetch('/api/articles/getArticles')
+
 const articleList = ref(data.value.articles || [])
 </script>
 

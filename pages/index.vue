@@ -18,6 +18,7 @@ import FeaturedSection from '~/components/articles/FeaturedSection.vue'
       <p class="font-display">No bullshit reviews and news.</p>
       <p class="text-[12px] font-display">Some bullshit opinions.</p>
     </div>
+
     <FeaturedSection />
   </div>
 </template>

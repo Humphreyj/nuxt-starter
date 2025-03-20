@@ -1,5 +1,6 @@
 <script setup>
 // Components
+import Article from '~/components/content/Article.vue'
 // const props = defineProps({})
 // const emit = defineEmits()
 const { id } = useRoute().params
@@ -13,10 +14,15 @@ if (gameId) {
   const { data: gameData } = await useFetch(`/api/games/${gameId}`)
   game.value = gameData.value || {}
 }
+const route = useRoute()
+const { data: page } = await useAsyncData(route.path, () => {
+  return queryCollection('articles').first()
+})
 </script>
 
 <template>
   <article class="flex-col-is-js w-full md:w-1/2 mx-auto">
+    <Article />
     <NuxtLink
       :to="{
         name: 'games-id',
@@ -44,15 +50,7 @@ if (gameId) {
         :article-detail="true"
       />
       <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
-      <section
-        v-for="(section, i) in content"
-        :key="i"
-        id="article-content"
-        class="w-full pb-6"
-      >
-        <h3 class="font-bold text-2xl my-1">{{ section.title }}</h3>
-        <p>{{ section.text }}</p>
-      </section>
+      <ContentRenderer :value="page" />
     </div>
   </article>
 </template>

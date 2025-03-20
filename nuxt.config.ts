@@ -6,8 +6,17 @@ export default defineNuxtConfig({
     buildAssetsDir: '/_nuxt/',
   },
   compatibilityDate: '2025-01-01',
+  content: {
+    build: {
+      markdown: {
+        toc: {
+          depth: 3, // include h3 headings
+        },
+      },
+    },
+  },
   devtools: { enabled: true },
-  modules: ['@nuxt/image', '@nuxt/ui', '@nuxt/fonts'],
+  modules: ['@nuxt/image', '@nuxt/ui', '@nuxt/fonts', '@nuxt/content'],
   css: ['~/assets/css/main.css'],
   image: {
     cloudflare: {
