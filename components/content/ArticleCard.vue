@@ -19,12 +19,12 @@ const props = defineProps({
   },
 })
 // const emit = defineEmits()
-const { title, summary, imageUrl, author, created_at } = props.article
+const { title, summary, imageUrl, author, createdAt } = props.article
 </script>
 
 <template>
   <div
-    class="w-full bg-gray-400 flex-col-is-js border-2 rounded-sm border-gray-500/80"
+    class="w-full bg-gray-400 flex-col-is-js border-2 rounded-sm border-gray-500/80 article-card"
   >
     <div class="w-full">
       <NuxtImg :src="imageUrl" class="object-contain w-full h-full"></NuxtImg>
@@ -36,19 +36,20 @@ const { title, summary, imageUrl, author, created_at } = props.article
       <NuxtLink
         :to="{
           name: 'article-id',
-          params: { id: props.article.id },
+          params: { id: props.article.articleId },
         }"
       >
         <h3 class="text-xl font-bold text-white border-b w-max hover:underline">
           {{ title }}
         </h3>
+        <slot />
       </NuxtLink>
       <div class="row-span-2 grid grid-rows-subgrid gap-2">
         <p class="row-start-3 w-[98%] min-h-16">
           {{ summary }}
         </p>
       </div>
-      <AuthorComponent :author="author" :created_at="created_at" />
+      <AuthorComponent :author="author" :created_at="createdAt" />
     </div>
   </div>
 </template>

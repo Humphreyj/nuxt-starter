@@ -8,17 +8,14 @@ import { handleFormat } from '#imports'
 // const emit = defineEmits()
 const { id } = useRoute().params
 const { data } = await useFetch(`/api/games/${id}`)
+const route = useRoute()
 const game = ref(data.value || {})
 const { title, tags, release_date, price, platform, description, images } =
   game.value
-const gameArticles = ref([])
 
-if (id) {
-  const { data: articlesData } = await useFetch(
-    `/api/articles/getArticlesByGame?gameId=${id}`,
-  )
-  gameArticles.value = articlesData.value.articles || []
-}
+const { data: gameArticles } = await useAsyncData(route.path, () => {
+  return queryCollection('articles').where('gameId', '=', id).all()
+})
 
 const showScreenshotsCarousel = ref(false)
 const toggleScreenshotsCarousel = () => {
@@ -89,7 +86,7 @@ const toggleScreenshotsCarousel = () => {
         <NuxtLink
           :to="{
             name: 'article-id',
-            params: { id: article.id },
+            params: { id: article.articleId },
           }"
         >
           <UIcon

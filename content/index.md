@@ -1,4 +1,3 @@
-::Article
-
+::card
 This is an article
 ::

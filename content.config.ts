@@ -7,12 +7,19 @@ export default defineContentConfig({
       type: 'page',
       // Define custom schema for docs collection
       schema: z.object({
+        articleId: z.string(),
         title: z.string(),
         summary: z.string(),
         tags: z.array(z.string()),
-        image: z.string(),
+        imageUrl: z.string(),
         date: z.date(),
         gameId: z.string(),
+        createdAt: z.date(),
+        author: z.object({
+          id: z.number().optional(),
+          name: z.string(),
+          imageUrl: z.string().optional(),
+        }),
       }),
     }),
   },
