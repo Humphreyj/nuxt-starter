@@ -1,6 +1,6 @@
 <script setup>
 // Components
-
+import ArticleComments from '~/components/articles/ArticleComments.vue'
 // const props = defineProps({})
 // const emit = defineEmits()
 const { id } = useRoute().params
@@ -9,6 +9,7 @@ const route = useRoute()
 const { data: page } = await useAsyncData(route.path, () => {
   return queryCollection('articles').where('articleId', '=', id).first()
 })
+
 const { title, summary, imageUrl, createdAt, author, gameId } = page.value
 
 const game = ref({})
@@ -50,6 +51,7 @@ if (gameId) {
       <div class="article-content [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:my-2">
         <ContentRenderer v-if="page" :value="page.body" />
       </div>
+      <ArticleComments v-if="page" :article-id="page.articleId" />
     </div>
   </article>
 </template>

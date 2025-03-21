@@ -2,7 +2,7 @@
 articleId: '7abbee39-9d8e-46dc-80bd-fb9b3a7f7fad'
 createdAt: '2025-03-15T00:08:00.000'
 title: "Where we're going, we don't need trees."
-summary: 'Have you ever had an awesome idea, and the resources to pull it off, but then just said fuck it?'
+summary: 'Deforest entire regions and replace them with soul less black roads with your homies.'
 gameId: 'ad42460c-7656-4fa1-8a4e-41d06654gg09'
 imageUrl: 'https://i.postimg.cc/fRwwrnrK/roadcraft-Cover.jpg'
 author:
