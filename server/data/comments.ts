@@ -26,6 +26,7 @@ export const comments = [
         content: 'Eh, I think there is better building in Minecraft.',
         createdAt: '2023-10-17T00:00:00.000Z',
         likes: [],
+        replies: [],
       },
     ],
   },
@@ -49,6 +50,7 @@ export const comments = [
         role: 'user',
       },
     ],
+    replies: [],
   },
   {
     id: '93c64bbe-db68-4a08-9821-de0c974c7314',
@@ -63,6 +65,7 @@ export const comments = [
     content: 'Eh, I think there is better building in Minecraft.',
     createdAt: '2023-10-17T00:00:00.000Z',
     likes: [],
+    replies: [],
   },
   {
     id: '93c64bbe-db68-4a08-9821-de0c974c7315',
