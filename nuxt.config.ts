@@ -16,7 +16,13 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ['@nuxt/image', '@nuxt/ui', '@nuxt/fonts', '@nuxt/content'],
+  modules: [
+    '@nuxt/image',
+    '@nuxt/ui',
+    '@nuxt/fonts',
+    '@nuxt/content',
+    '@pinia/nuxt',
+  ],
   css: ['~/assets/css/main.css'],
   image: {
     cloudflare: {

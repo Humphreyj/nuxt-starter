@@ -1,11 +1,15 @@
 <script setup>
 // Components
+// Pinia
+import { useUserStore } from '#imports'
+
 const props = defineProps({
   showSidebar: {
     type: Boolean,
     default: false,
   },
 })
+const { currentUser } = storeToRefs(useUserStore())
 const emit = defineEmits(['toggle'])
 const open = ref(props.showSidebar)
 const toggle = () => {
@@ -70,6 +74,16 @@ const toggle = () => {
             </li>
           </ul>
         </nav>
+        <section class="flex-ic-js gap-2">
+          <UAvatar
+            v-if="currentUser.profileImage"
+            :src="currentUser.profileImage"
+          />
+          <UIcon v-else name="lucide:user" class="text-2xl text-primary-text" />
+          <span class="text-lg font-semibold">
+            {{ currentUser.username }}
+          </span>
+        </section>
       </section>
     </template>
   </UDrawer>
