@@ -1,5 +1,6 @@
 <script setup>
 // Components
+import Comment from './Comment.vue'
 import { useUserStore } from '#imports'
 
 const props = defineProps({
@@ -23,6 +24,9 @@ const addNewComment = () => {
     id: Date.now(), // Simulate a unique ID for the new comment
     content: newComment.value,
     user: user,
+    createdAt: new Date().toISOString(),
+    likes: [],
+    replies: [],
   })
   newComment.value = '' // Clear the input after adding the comment
 }
@@ -42,22 +46,15 @@ const addNewComment = () => {
         placeholder="Add a comment..."
         class="w-full"
         size="xl"
+        color="neutral"
         @keydown.enter="addNewComment"
       />
-      <div
+      <Comment
         v-for="comment in articleComments"
         :key="comment.id"
-        class="flex-col-is-js border-b border-gray-500/80 w-full"
-      >
-        <div id="comment-author" class="flex-ic-js gap-3 my-1">
-          <UAvatar :src="comment.user.profileImage" />
-          <p class="font-semibold">{{ comment.user.username }}</p>
-          <p class="text-sm">{{ handleFormat(comment.createdAt, 'date') }}</p>
-        </div>
-        <p class="mb-2">
-          {{ comment.content }}
-        </p>
-      </div>
+        :comment="comment"
+        class="flex-col-is-js border-b border-gray-500/80 w-full px-1"
+      />
     </div>
   </section>
 </template>
