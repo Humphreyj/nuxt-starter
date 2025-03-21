@@ -77,5 +77,6 @@ export const comments = [
     content: "This is a pretty fuckin' stupid take.",
     createdAt: '2023-10-17T00:00:00.000Z',
     likes: [],
+    replies: [],
   },
 ]
