@@ -10,27 +10,17 @@ const props = defineProps({
   },
 })
 const { currentUser } = storeToRefs(useUserStore())
-const { login, logout } = useUserStore()
+const { login, logout, checkForUser } = useUserStore()
 const emit = defineEmits(['toggle'])
 const open = ref(props.showSidebar)
 const toggle = () => {
   open.value = !open.value
   emit('toggle', open.value)
 }
-// const createNewUser = async () => {
-//   await $fetch('/api/users/create', {
-//     method: 'POST',
-//     body: {
-//       email: 'test@testman.com',
-//       password: 'securepassword',
-//       name: 'Test Testman',
-//       displayName: 'Testman',
-//       provider: null, // For OAuth users, set provider details
-//       providerId: null,
-//       avatarUrl: 'https://thispersondoesnotexist.com/',
-//     },
-//   })
-// }
+
+onMounted(() => {
+  checkForUser()
+})
 </script>
 
 <template>

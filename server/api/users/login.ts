@@ -16,12 +16,25 @@ export default defineEventHandler(async (event) => {
     const user = await prisma.user.findFirst({
       where: { email },
     })
-    const isPasswordValid = await verifyPassword(password, user.password) // Check if the password is valid
-
     if (!user) {
       throw createError({ statusCode: 404, statusMessage: 'User not found' })
     }
-    delete user.password // Remove the password from the user object for security reasons
+
+    const isPasswordValid =
+      user.password && (await verifyPassword(user.password, password)) // Check if the password is valid
+
+    if (!isPasswordValid) {
+      throw createError({ statusCode: 404, statusMessage: 'User not found' })
+    }
+    delete (user as { password?: string }).password // Remove the password from the user object for security reasons
+    await setUserSession(event, {
+      user: {
+        id: user.id,
+        avatarUrl: user.avatarUrl,
+        displayName: user.displayName,
+      },
+      loggedInAt: Date.now(),
+    })
     return user
   } catch (error) {
     const errorMessage =

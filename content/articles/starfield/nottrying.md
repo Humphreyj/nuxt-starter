@@ -8,7 +8,7 @@ imageUrl: 'https://i.postimg.cc/Z5KSLPWs/STARFIELD-MAIN-1.jpg'
 author:
   id: 0
   name: 'Dan Good'
-  imageUrl: 'https://i.postimg.cc/fTxRWHsP/Capture-2025-03-15-152344.png'
+  imageUrl: 'img/users/Dan.png'
 ---
 
 # A Universe That Feels Empty

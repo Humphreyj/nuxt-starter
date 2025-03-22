@@ -1,6 +1,8 @@
 <script setup>
 // Components
 import FeaturedSection from '~/components/articles/FeaturedSection.vue'
+// Pinia
+
 // const props = defineProps({})
 // const emit = defineEmits()
 </script>

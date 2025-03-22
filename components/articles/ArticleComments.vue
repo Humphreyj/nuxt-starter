@@ -2,6 +2,7 @@
 // Components
 import Comment from './Comment.vue'
 import { useUserStore } from '#imports'
+import LoginModal from '../auth/LoginModal.vue'
 
 const props = defineProps({
   articleId: {
@@ -9,7 +10,7 @@ const props = defineProps({
     required: true,
   },
 })
-const { login } = useUserStore()
+
 const { currentUser } = storeToRefs(useUserStore())
 const { data: comments } = await useFetch(`/api/comments/${props.articleId}`)
 const articleComments = ref(comments || [])
@@ -58,7 +59,7 @@ const addNewComment = () => {
       class="w-10/12 mx-auto standard-border rounded-lg p-4 flex-col-is-js gap-2"
     >
       <p>Log in to comment.</p>
-      <BasicButton class="p-1" @click="login">Log In</BasicButton>
+      <LoginModal />
     </div>
     <Comment
       v-for="comment in articleComments"

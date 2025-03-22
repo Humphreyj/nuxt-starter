@@ -38,7 +38,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     session: {
-      maxAge: 60 * 60 * 24 * 7, // 1 week
+      maxAge: 60 * 60 * 24, // 1 day
       password: process.env.NUXT_SESSION_PASSWORD || 'default_password', // required password
     },
   },

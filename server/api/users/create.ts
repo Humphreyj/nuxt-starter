@@ -34,6 +34,14 @@ export default defineEventHandler(async (event) => {
         displayName,
       },
     })
+    await setUserSession(event, {
+      user: {
+        id: user.id,
+        avatarUrl: user.avatarUrl,
+        displayName: user.displayName,
+      },
+      loggedInAt: Date.now(),
+    })
 
     return { message: 'User created successfully', user }
   } catch (error) {
