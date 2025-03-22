@@ -12,8 +12,8 @@ const props = defineProps({
 <template>
   <div class="flex-col-is-js border-b border-gray-500/80 w-full px-1">
     <div id="comment-author" class="flex-ic-js gap-3 my-1">
-      <UAvatar :src="comment.user.profileImage" />
-      <p class="font-semibold">{{ comment.user.username }}</p>
+      <UAvatar :src="comment.user.avatarUrl" />
+      <p class="font-semibold">{{ comment.user.displayName }}</p>
       <p class="text-sm">{{ handleFormat(comment.createdAt, 'date') }}</p>
     </div>
     <p class="mb-2">
@@ -34,8 +34,8 @@ const props = defineProps({
       class="flex-col-is-js w-10/12 px-1 ml-2"
     >
       <div id="reply-author" class="flex-ic-js gap-3 my-1">
-        <UAvatar :src="reply.user.profileImage" />
-        <p class="font-semibold">{{ reply.user.username }}</p>
+        <UAvatar :src="reply.user.avatarUrl" />
+        <p class="font-semibold">{{ reply.user.displayName }}</p>
         <p class="text-sm">{{ handleFormat(reply.createdAt, 'date') }}</p>
       </div>
       <p class="mb-2">

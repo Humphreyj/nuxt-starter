@@ -1,11 +1,19 @@
 @import 'tailwindcss' theme(static);
 @import '@nuxt/ui';
 @import './flexHelpers.css';
+@tailwind utilities;
 
 @theme static {
   --font-title: 'Albert Sans', 'sans-serif';
   --font-display: 'Red Hat Display', 'sans-serif';
+
   --color-header: #334155;
   --color-primary-text: #edf0f4;
   --color-tag-color: #5baad8;
+}
+
+@layer utilities {
+  .standard-border {
+    @apply border-2 border-solid border-gray-500/80;
+  }
 }

@@ -10,12 +10,27 @@ const props = defineProps({
   },
 })
 const { currentUser } = storeToRefs(useUserStore())
+const { login, logout } = useUserStore()
 const emit = defineEmits(['toggle'])
 const open = ref(props.showSidebar)
 const toggle = () => {
   open.value = !open.value
   emit('toggle', open.value)
 }
+// const createNewUser = async () => {
+//   await $fetch('/api/users/create', {
+//     method: 'POST',
+//     body: {
+//       email: 'test@testman.com',
+//       password: 'securepassword',
+//       name: 'Test Testman',
+//       displayName: 'Testman',
+//       provider: null, // For OAuth users, set provider details
+//       providerId: null,
+//       avatarUrl: 'https://thispersondoesnotexist.com/',
+//     },
+//   })
+// }
 </script>
 
 <template>
@@ -74,15 +89,16 @@ const toggle = () => {
             </li>
           </ul>
         </nav>
-        <section class="flex-ic-js gap-2">
-          <UAvatar
-            v-if="currentUser.profileImage"
-            :src="currentUser.profileImage"
-          />
+        <section v-if="currentUser" class="flex-ic-js gap-2">
+          <UAvatar v-if="currentUser.avatarUrl" :src="currentUser.avatarUrl" />
           <UIcon v-else name="lucide:user" class="text-2xl text-primary-text" />
           <span class="text-lg font-semibold">
-            {{ currentUser.username }}
+            {{ currentUser.displayName }}
           </span>
+        </section>
+        <button v-if="currentUser" @click="logout">Logout</button>
+        <section v-else>
+          <button @click="login">Login</button>
         </section>
       </section>
     </template>

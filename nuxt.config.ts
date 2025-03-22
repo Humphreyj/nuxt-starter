@@ -22,6 +22,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/content',
     '@pinia/nuxt',
+    'nuxt-auth-utils',
+    '@prisma/nuxt',
   ],
   css: ['~/assets/css/main.css'],
   image: {
@@ -33,6 +35,12 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: 'netlify',
+  },
+  runtimeConfig: {
+    session: {
+      maxAge: 60 * 60 * 24 * 7, // 1 week
+      password: process.env.NUXT_SESSION_PASSWORD || 'default_password', // required password
+    },
   },
   ssr: true,
 })
