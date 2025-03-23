@@ -1,5 +1,6 @@
 <script setup>
 // Components
+import LoginModal from '../auth/LoginModal.vue'
 // Pinia
 import { useUserStore } from '#imports'
 
@@ -88,7 +89,7 @@ onMounted(() => {
         </section>
         <button v-if="currentUser" @click="logout">Logout</button>
         <section v-else>
-          <button @click="login">Login</button>
+          <LoginModal />
         </section>
       </section>
     </template>

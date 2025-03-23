@@ -12,8 +12,8 @@ const props = defineProps({
 <template>
   <div class="flex-col-is-js border-b border-gray-500/80 w-full px-1">
     <div id="comment-author" class="flex-ic-js gap-3 my-1">
-      <UAvatar :src="comment.user.avatarUrl" />
-      <p class="font-semibold">{{ comment.user.displayName }}</p>
+      <UAvatar :src="comment.userData.avatarUrl" />
+      <p class="font-semibold">{{ comment.userData.displayName }}</p>
       <p class="text-sm">{{ handleFormat(comment.createdAt, 'date') }}</p>
     </div>
     <p class="mb-2">

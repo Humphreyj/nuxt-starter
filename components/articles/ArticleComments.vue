@@ -16,7 +16,7 @@ const { data: comments } = await useFetch(`/api/comments/${props.articleId}`)
 const articleComments = ref(comments || [])
 const newComment = ref('')
 
-const addNewComment = () => {
+const addNewComment = async () => {
   if (newComment.value.trim() === '') return
   // Here you would typically send the new comment to your API
   // For now, we'll just add it to the local state
@@ -25,10 +25,20 @@ const addNewComment = () => {
   articleComments.value.unshift({
     id: Date.now(), // Simulate a unique ID for the new comment
     content: newComment.value,
-    user: user,
+    userData: user,
     createdAt: new Date().toISOString(),
     likes: [],
     replies: [],
+  })
+  const result = await $fetch('/api/comments/:articleId', {
+    method: 'POST',
+    body: {
+      articleId: props.articleId,
+      content: newComment.value,
+      userData: user,
+      likes: [],
+      replies: [],
+    },
   })
   newComment.value = '' // Clear the input after adding the comment
 }
