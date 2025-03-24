@@ -15,6 +15,7 @@ export default defineEventHandler(async (event) => {
     // Try finding the user by ID or email
     const user = await prisma.user.findFirst({
       where: { email },
+      include: { comments: true }, // Include related data if needed
     })
     if (!user) {
       throw createError({ statusCode: 404, statusMessage: 'User not found' })

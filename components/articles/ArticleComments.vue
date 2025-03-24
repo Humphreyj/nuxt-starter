@@ -1,6 +1,6 @@
 <script setup>
 // Components
-import Comment from './Comment.vue'
+import CommentBox from './CommentBox.vue'
 import { useUserStore } from '#imports'
 import LoginModal from '../auth/LoginModal.vue'
 
@@ -58,7 +58,7 @@ const addNewComment = async () => {
         v-model="newComment"
         type="text"
         placeholder="Add a comment..."
-        class="w-full"
+        class="w-full my-2"
         size="xl"
         color="neutral"
         @keydown.enter="addNewComment"
@@ -71,11 +71,11 @@ const addNewComment = async () => {
       <p>Log in to comment.</p>
       <LoginModal />
     </div>
-    <Comment
+    <CommentBox
       v-for="comment in articleComments"
       :key="comment.id"
       :comment="comment"
-      class="flex-col-is-js border-b border-gray-500/80 w-full px-1"
+      class="flex-col-is-js w-full px-1"
     />
   </section>
 </template>
