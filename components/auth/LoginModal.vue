@@ -13,6 +13,7 @@ const showLogin = ref(true)
 
 const onSubmit = async (event) => {
   event.preventDefault()
+  credentials.email = credentials.email.trim().toLowerCase()
   const { login } = useUserStore()
   try {
     await login(credentials)
@@ -26,6 +27,7 @@ const onSubmit = async (event) => {
 const onSignup = async (event) => {
   event.preventDefault()
   const { signup } = useUserStore()
+  credentials.email = credentials.email.trim().toLowerCase()
   try {
     await signup(credentials)
     // Handle successful signup, e.g., close modal or redirect

@@ -43,7 +43,15 @@ const handleLike = async () => {
 <template>
   <div class="flex-col-is-js w-full px-1">
     <div id="comment-author" class="flex-ic-js gap-3 my-1">
-      <UAvatar :src="comment.userData.avatarUrl" />
+      <UAvatar
+        v-if="comment.userData.avatarUrl"
+        :src="comment.userData.avatarUrl"
+      />
+      <UAvatar
+        v-else
+        icon="lucide:user"
+        class="text-2xl text-primary-text rounded-full border"
+      />
       <p class="font-semibold">{{ comment.userData.displayName }}</p>
       <p class="text-sm">{{ handleFormat(comment.createdAt, 'date') }}</p>
     </div>

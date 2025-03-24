@@ -25,7 +25,7 @@ const { title, summary, imageUrl, author, createdAt } = props.article
 
 <template>
   <div
-    class="w-full flex-col-is-js border-2 rounded-sm border-gray-500/80 article-card"
+    class="w-full flex-col-is-js border-2 rounded-sm border-gray-500/80 article-card shadow-lg shadow-neutral-900"
   >
     <div class="w-full">
       <NuxtImg

@@ -29,7 +29,6 @@ export default defineEventHandler(async (event) => {
         provider,
         providerId,
         avatarUrl,
-        comments: [],
         likesReceived: [],
         displayName,
       },
