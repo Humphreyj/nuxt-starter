@@ -37,6 +37,7 @@ const handleLike = async () => {
   )
 }
 
+const showLikesPopover = ref(false)
 // const emit = defineEmits()
 </script>
 
@@ -59,14 +60,26 @@ const handleLike = async () => {
     <p class="mb-2">
       {{ comment.content }}
     </p>
-    <div id="comment-actions" class="flex-ic-js gap-2 p-1">
+    <div id="comment-actions" class="flex-ic-js gap-3 p-1">
       <!-- <p class="text-sm" @click="emit('toggle-reply')">Reply</p> -->
       <UIcon
         name="lucide:thumbs-up"
-        class="text-gray-500 mb-1 cursor-pointer"
+        class="text-gray-500 mb-1 text-lg cursor-pointer"
         @click="handleLike"
       />
-      <p class="text-sm">{{ comment.likes.length }}</p>
+      <UPopover v-model:open="showLikesPopover" v-if="comment.likes.length">
+        <p class="text-sm" @click="() => (showLikesPopover = true)">
+          {{ comment.likes.length }}
+        </p>
+        <template #content>
+          <div class="flex-col-is-js p-2">
+            Liked By:
+            <p v-for="(like, i) in comment.likes" :key="i">
+              {{ like.displayName }}
+            </p>
+          </div>
+        </template>
+      </UPopover>
     </div>
   </div>
 </template>
