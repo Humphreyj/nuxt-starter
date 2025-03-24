@@ -1,5 +1,6 @@
 <script setup>
 // Components
+import DGG from '../../public/img/DGGLogo.png'
 const props = defineProps({
   article: {
     type: Object,
@@ -24,10 +25,18 @@ const { title, summary, imageUrl, author, createdAt } = props.article
 
 <template>
   <div
-    class="w-full bg-gray-400 flex-col-is-js border-2 rounded-sm border-gray-500/80 article-card"
+    class="w-full flex-col-is-js border-2 rounded-sm border-gray-500/80 article-card"
   >
     <div class="w-full">
-      <NuxtImg :src="imageUrl" class="object-contain w-full h-full"></NuxtImg>
+      <NuxtImg
+        v-if="imageUrl"
+        :src="imageUrl"
+        class="object-contain w-full h-full"
+      ></NuxtImg>
+      <div
+        v-else
+        class="bg-[url('img/DGGLogo.png')] bg-contain bg-center bg-repeat h-64"
+      ></div>
     </div>
     <div
       id="article-info"

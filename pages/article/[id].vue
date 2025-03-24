@@ -22,9 +22,10 @@ if (gameId) {
 <template>
   <article class="flex-col-is-js w-full md:w-1/2 mx-auto">
     <NuxtLink
+      v-if="gameId"
       :to="{
         name: 'games-id',
-        params: { id: game.id },
+        params: { id: gameId },
       }"
     >
       <h2 class="font-emibold underline pl-2 text-white text-center my-1">
@@ -33,7 +34,16 @@ if (gameId) {
     </NuxtLink>
 
     <div class="w-full">
-      <NuxtImg :src="imageUrl" class="object-contain w-full h-full"></NuxtImg>
+      <NuxtImg
+        v-if="imageUrl"
+        :src="imageUrl"
+        class="object-contain w-full h-full"
+      ></NuxtImg>
+      <NuxtImg
+        v-else
+        src="img/DGGLogo.png"
+        class="bg-repeat w-full h-full"
+      ></NuxtImg>
     </div>
     <div class="flex-col-is-js px-2 py-1 w-full">
       <h3 class="text-3xl font-bold text-white border-b w-full hover:underline">

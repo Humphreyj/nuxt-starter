@@ -4,7 +4,8 @@ createdAt: '2025-03-15T00:08:00.000'
 title: "Where we're going, we don't need trees."
 summary: 'Deforest entire regions and replace them with soul less black roads with your homies.'
 gameId: 'ad42460c-7656-4fa1-8a4e-41d06654gg09'
-imageUrl: 'https://i.postimg.cc/fRwwrnrK/roadcraft-Cover.jpg'
+imageUrl: 'img/roadcraft/roadcraftCover.jpg'
+published: true
 author:
   id: 0
   name: 'Dan Good'

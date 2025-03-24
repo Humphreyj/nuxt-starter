@@ -5,6 +5,7 @@ title: 'A tale of not trying very hard.'
 summary: 'Have you ever had an awesome idea, and the resources to pull it off, but then just said fuck it?'
 gameId: 'ad42460c-7656-4fa1-8a4e-41d06654gg11'
 imageUrl: 'https://i.postimg.cc/Z5KSLPWs/STARFIELD-MAIN-1.jpg'
+published: false
 author:
   id: 0
   name: 'Dan Good'

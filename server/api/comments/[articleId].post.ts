@@ -13,6 +13,6 @@ export default defineEventHandler(async (event) => {
       content: content,
     },
   })
-  console.log('newComment', newComment)
-  return
+
+  return newComment
 })

@@ -15,6 +15,7 @@ export default defineContentConfig({
         date: z.date(),
         gameId: z.string(),
         createdAt: z.date(),
+        published: z.boolean(),
         author: z.object({
           id: z.number().optional(),
           name: z.string(),

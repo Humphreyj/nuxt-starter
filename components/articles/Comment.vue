@@ -6,6 +6,32 @@ const props = defineProps({
     required: true,
   },
 })
+const { currentUser } = storeToRefs(useUserStore())
+
+const { comment } = toRefs(props)
+
+const handleLike = async () => {
+  // Check if the user has already liked the comment
+  let foundUserIndex = comment.value.likes.findIndex(
+    (user) => user.id === currentUser.value.id,
+  )
+  // If the user has already liked the comment, remove their like
+  if (foundUserIndex !== -1) {
+    comment.value.likes.splice(foundUserIndex, 1)
+  } else {
+    comment.value.likes.push(currentUser.value)
+  }
+  // put request to update comments
+  const newComment = await $fetch(
+    '/api/comments/' + comment.value.id + '/like',
+    {
+      method: 'PUT',
+      body: {
+        comment: comment.value,
+      },
+    },
+  )
+}
 // const emit = defineEmits()
 </script>
 
@@ -24,6 +50,7 @@ const props = defineProps({
       <UIcon
         name="lucide:thumbs-up"
         class="text-gray-500 mb-1 cursor-pointer"
+        @click="handleLike"
       />
       <p class="text-sm">{{ comment.likes.length }}</p>
     </div>

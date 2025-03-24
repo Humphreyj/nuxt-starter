@@ -6,7 +6,10 @@
 
 const { data: articles } = await useAsyncData(() => {
   // Sort these by createdAt descending
-  return queryCollection('articles').order('createdAt', 'DESC').all()
+  return queryCollection('articles')
+    .where('published', '=', true)
+    .order('createdAt', 'DESC')
+    .all()
 })
 </script>
 
