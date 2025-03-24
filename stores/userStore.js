@@ -43,6 +43,10 @@ export const useUserStore = defineStore('userStore', () => {
 
   const signup = async (newUser) => {
     // const hashedPassword = await hashPassword(newUser.password)
+    toast.add({
+      color: 'green',
+      title: 'Creating user...',
+    })
     const result = await $fetch('/api/users/create', {
       method: 'POST',
       body: {
@@ -55,7 +59,13 @@ export const useUserStore = defineStore('userStore', () => {
         avatarUrl: null,
       },
     })
-    currentUser.value = result.user
+    if (result) {
+      toast.add({
+        color: 'green',
+        title: `Welcome, ${result.user.displayName}!`,
+      })
+      currentUser.value = result.user
+    }
   }
 
   const actions = {

@@ -20,7 +20,7 @@ if (gameId) {
 </script>
 
 <template>
-  <article class="flex-col-is-js w-full md:w-1/2 mx-auto">
+  <article class="flex-col-is-js w-full md:w-1/2 mx-auto pb-12">
     <NuxtLink
       v-if="gameId"
       :to="{
@@ -46,7 +46,7 @@ if (gameId) {
       ></NuxtImg>
     </div>
     <div class="flex-col-is-js px-2 py-1 w-full">
-      <h3 class="text-3xl font-bold text-white border-b w-full hover:underline">
+      <h3 class="text-3xl font-extrabold text-white w-full">
         {{ title }}
       </h3>
       <p class="row-start-3 w-[98%] min-h-16">

@@ -87,7 +87,7 @@ onMounted(() => {
             {{ currentUser.displayName }}
           </span>
         </section>
-        <button v-if="currentUser" @click="logout">Logout</button>
+        <UButton v-if="currentUser" @click="logout">Logout</UButton>
         <section v-else>
           <LoginModal />
         </section>

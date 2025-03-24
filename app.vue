@@ -2,6 +2,7 @@
 
 <template>
   <UApp>
+    <NuxtLoadingIndicator />
     <div class="w-full">
       <NuxtLayout>
         <NuxtPage />

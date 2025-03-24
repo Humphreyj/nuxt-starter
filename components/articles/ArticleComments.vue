@@ -1,5 +1,6 @@
 <script setup>
 // Components
+import CommentInput from './CommentInput.vue'
 import CommentBox from './CommentBox.vue'
 import { useUserStore } from '#imports'
 import LoginModal from '../auth/LoginModal.vue'
@@ -14,17 +15,18 @@ const props = defineProps({
 const { currentUser } = storeToRefs(useUserStore())
 const { data: comments } = await useFetch(`/api/comments/${props.articleId}`)
 const articleComments = ref(comments || [])
-const newComment = ref('')
+// const newComment = ref('')
 
-const addNewComment = async () => {
-  if (newComment.value.trim() === '') return
+const addNewComment = async (comment) => {
+  console.log('addNewComment', comment)
+  if (comment.trim() === '') return
   // Here you would typically send the new comment to your API
   // For now, we'll just add it to the local state
   let user = { ...currentUser.value } // Ensure we have the current user
   delete user.role
   articleComments.value.unshift({
     id: Date.now(), // Simulate a unique ID for the new comment
-    content: newComment.value,
+    content: comment,
     userData: user,
     createdAt: new Date().toISOString(),
     likes: [],
@@ -34,36 +36,23 @@ const addNewComment = async () => {
     method: 'POST',
     body: {
       articleId: props.articleId,
-      content: newComment.value,
+      content: comment,
       userData: user,
       likes: [],
       replies: [],
     },
   })
-  newComment.value = '' // Clear the input after adding the comment
 }
 
 // const emit = defineEmits()
 </script>
 
 <template>
-  <section class="flex-col-is-js w-full">
+  <section class="flex-col-is-js w-full gap-1">
     <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
-    <h1 class="text-xl font-semibold">Comments</h1>
-    <div v-if="currentUser" class="flex-col-is-js w-full gap-2">
-      <p class="text-sm">
-        Be civil to ensure we all have a Damn Good discussion
-      </p>
-      <UInput
-        v-model="newComment"
-        type="text"
-        placeholder="Add a comment..."
-        class="w-full my-2"
-        size="xl"
-        color="neutral"
-        @keydown.enter="addNewComment"
-      />
-    </div>
+    <h1 class="text-2xl font-semibold">Comments</h1>
+    <p class="text-sm">Be civil to ensure we all have a Damn Good discussion</p>
+    <CommentInput v-if="currentUser" @add-new-comment="addNewComment" />
     <div
       v-else
       class="w-10/12 mx-auto standard-border rounded-lg p-4 flex-col-is-js gap-2"
@@ -71,6 +60,12 @@ const addNewComment = async () => {
       <p>Log in to comment.</p>
       <LoginModal />
     </div>
+    <p
+      v-if="!articleComments.length"
+      class="text-center w-full my-2 text-xl text-gray-500/80"
+    >
+      No comments yet. Be the first!
+    </p>
     <CommentBox
       v-for="comment in articleComments"
       :key="comment.id"

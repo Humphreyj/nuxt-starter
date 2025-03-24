@@ -41,11 +41,12 @@ const handleLike = async () => {
 </script>
 
 <template>
-  <div class="flex-col-is-js w-full px-1">
+  <div class="flex-col-is-js w-full p-1">
     <div id="comment-author" class="flex-ic-js gap-3 my-1">
       <UAvatar
         v-if="comment.userData.avatarUrl"
         :src="comment.userData.avatarUrl"
+        class="border"
       />
       <UAvatar
         v-else
