@@ -204,4 +204,28 @@ export const games: GameData[] = [
     },
     articles: [],
   },
+  {
+    id: '7fa52ed1-7a52-401e-b5b9-b1c9c37977d0',
+    title: 'PlateUp!',
+    description:
+      'Classic cooking action with permanent roguelite progression. Hire your friends - or do it all yourself!',
+    review: '',
+    rating: 'Damn Good',
+    price: 19.99,
+    purchase_price: null,
+    release_date: '08-04-2022',
+    publisher: 'XYogscast Games, Gamersky Games',
+    developer: 'It\s happening',
+    tags: ['Co-op', 'Multiplayer', 'Cooking'],
+    platform: 'PC',
+    images: {
+      cover: 'img/plateUp/plateUpCover.jpg',
+      screenshots: [
+        'img/plateUp/newDay.jpg',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1599600/ss_8c944c593113598b6446b6b5d07962a10fe79ec6.600x338.jpg?t=1742310704',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1599600/ss_5cdb7d8147767fece03a9a69a10af64a2e0c5e47.600x338.jpg?t=1742310704',
+      ],
+    },
+    articles: [{ type: 'review', id: 'd453d31e-680c-45a2-98b8-e4a93608e677' }],
+  },
 ]

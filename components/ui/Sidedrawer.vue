@@ -80,14 +80,23 @@ onMounted(() => {
             </li>
           </ul>
         </nav>
-        <section v-if="currentUser" class="flex-ic-js gap-2">
-          <UAvatar v-if="currentUser.avatarUrl" :src="currentUser.avatarUrl" />
-          <UIcon v-else name="lucide:user" class="text-2xl text-primary-text" />
-          <span class="text-lg font-semibold">
-            {{ currentUser.displayName }}
-          </span>
+        <section v-if="currentUser" class="flex-col-is-js gap-2 pl-2">
+          <div class="flex-ic-js gap-2">
+            <UAvatar
+              v-if="currentUser.avatarUrl"
+              :src="currentUser.avatarUrl"
+            />
+            <UIcon
+              v-else
+              name="lucide:user"
+              class="text-2xl text-primary-text"
+            />
+            <span class="text-lg font-semibold">
+              {{ currentUser.displayName }}
+            </span>
+          </div>
+          <UButton class="text-xs" @click="logout">Logout</UButton>
         </section>
-        <UButton v-if="currentUser" @click="logout">Logout</UButton>
         <section v-else>
           <LoginModal />
         </section>

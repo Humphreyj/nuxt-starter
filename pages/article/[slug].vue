@@ -13,16 +13,8 @@ const { data: page } = await useAsyncData(route.path, () => {
 const { title, summary, imageUrl, createdAt, author, gameId } = page.value
 
 const game = ref({})
-watch(
-  gameId,
-  async (id) => {
-    if (id) {
-      const { data: gameData } = await useFetch(`/api/games/${id}`)
-      game.value = gameData.value || {}
-    }
-  },
-  { immediate: true },
-)
+const { data: gameData } = await useFetch(`/api/games/${gameId}`)
+game.value = gameData.value || {}
 </script>
 
 <template>
@@ -31,7 +23,7 @@ watch(
       v-if="game.title"
       :to="{
         name: 'games-id',
-        params: { id: gameId },
+        params: { id: game.id },
       }"
     >
       <h2 class="font-emibold underline pl-2 text-white text-center my-1">

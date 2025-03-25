@@ -85,8 +85,8 @@ const toggleScreenshotsCarousel = () => {
         <p class="text-sm">{{ article.title }}</p>
         <NuxtLink
           :to="{
-            name: 'article-id',
-            params: { id: article.articleId },
+            name: 'article-slug',
+            params: { slug: article.slug },
           }"
         >
           <UIcon
