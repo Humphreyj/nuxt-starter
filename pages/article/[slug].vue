@@ -3,26 +3,32 @@
 import ArticleComments from '~/components/articles/ArticleComments.vue'
 // const props = defineProps({})
 // const emit = defineEmits()
-const { id } = useRoute().params
+const { slug } = useRoute().params
 const route = useRoute()
 // Fetch game data only after article is loaded
 const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection('articles').where('articleId', '=', id).first()
+  return queryCollection('articles').where('slug', '=', slug).first()
 })
 
 const { title, summary, imageUrl, createdAt, author, gameId } = page.value
 
 const game = ref({})
-if (gameId) {
-  const { data: gameData } = await useFetch(`/api/games/${gameId}`)
-  game.value = gameData.value || {}
-}
+watch(
+  gameId,
+  async (id) => {
+    if (id) {
+      const { data: gameData } = await useFetch(`/api/games/${id}`)
+      game.value = gameData.value || {}
+    }
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
-  <article class="flex-col-is-js w-full md:w-1/2 mx-auto pb-12">
+  <article class="flex-col-is-js w-full md:w-1/2 lg:w-1/3 mx-auto pb-12">
     <NuxtLink
-      v-if="gameId"
+      v-if="game.title"
       :to="{
         name: 'games-id',
         params: { id: gameId },

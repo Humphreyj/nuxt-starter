@@ -9,6 +9,7 @@ export default defineContentConfig({
       schema: z.object({
         articleId: z.string(),
         title: z.string(),
+        slug: z.string(),
         summary: z.string(),
         tags: z.array(z.string()),
         imageUrl: z.string(),

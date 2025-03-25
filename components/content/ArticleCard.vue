@@ -20,7 +20,7 @@ const props = defineProps({
   },
 })
 // const emit = defineEmits()
-const { title, summary, imageUrl, author, createdAt } = props.article
+const { title, slug, summary, imageUrl, author, createdAt } = props.article
 </script>
 
 <template>
@@ -44,11 +44,11 @@ const { title, summary, imageUrl, author, createdAt } = props.article
     >
       <NuxtLink
         :to="{
-          name: 'article-id',
-          params: { id: props.article.articleId },
+          name: 'article-slug',
+          params: { slug: slug },
         }"
       >
-        <h3 class="text-xl font-bold text-white border-b w-max hover:underline">
+        <h3 class="text-xl font-bold text-white border-b w-max">
           {{ title }}
         </h3>
         <slot />

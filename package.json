@@ -16,6 +16,7 @@
     "@nuxt/ui": "^3.0.0",
     "@pinia/nuxt": "^0.10.1",
     "@prisma/nuxt": "^0.3.0",
+    "@vueuse/nuxt": "^13.0.0",
     "date-fns": "^4.1.0",
     "nuxt": "^3.16.0",
     "nuxt-auth-utils": "^0.5.17",

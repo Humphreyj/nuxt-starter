@@ -2,6 +2,7 @@
 articleId: '7accee39-9d8e-46dc-80bd-fb9b3a7f7fad'
 createdAt: '2025-03-22T00:08:00.000'
 title: 'What is your favorite game?'
+urlTitle: 'what-is-your-favorite-game'
 summary: 'A simple question that can be quite difficult to answer.'
 imageUrl: null
 published: false

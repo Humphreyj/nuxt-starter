@@ -37,6 +37,17 @@ const handleLike = async () => {
   )
 }
 
+const likeButtonClass = computed(() => {
+  let foundLike = comment.value.likes.findIndex(
+    (user) => user.id === currentUser.value.id,
+  )
+  if (foundLike !== -1) {
+    return 'text-blue-500 mb-1 text-lg cursor-pointer -rotate-6 transition duration-200 ease-in-out drop-shadow-lg shadow shadow-neutral-900'
+  } else {
+    return 'text-gray-500 mb-1 text-lg cursor-pointer transition duration-200 ease-in-out'
+  }
+})
+
 const showLikesPopover = ref(false)
 // const emit = defineEmits()
 </script>
@@ -64,7 +75,7 @@ const showLikesPopover = ref(false)
       <!-- <p class="text-sm" @click="emit('toggle-reply')">Reply</p> -->
       <UIcon
         name="lucide:thumbs-up"
-        class="text-gray-500 mb-1 text-lg cursor-pointer"
+        :class="likeButtonClass"
         @click="handleLike"
       />
       <UPopover v-model:open="showLikesPopover" v-if="comment.likes.length">

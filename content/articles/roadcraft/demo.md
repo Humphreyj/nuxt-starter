@@ -2,6 +2,7 @@
 articleId: '7abbee39-9d8e-46dc-80bd-fb9b3a7f7fad'
 createdAt: '2025-03-15T00:08:00.000'
 title: "Where we're going, we don't need trees."
+slug: 'where-were-going-we-dont-need-trees'
 summary: 'Deforest entire regions and replace them with soul less black roads with your homies.'
 gameId: 'ad42460c-7656-4fa1-8a4e-41d06654gg09'
 imageUrl: 'img/roadcraft/roadcraftCover.jpg'

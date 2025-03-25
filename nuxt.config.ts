@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-auth-utils',
     '@prisma/nuxt',
+    '@vueuse/nuxt',
   ],
   css: ['~/assets/css/main.css'],
   image: {

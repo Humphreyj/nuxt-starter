@@ -22,6 +22,16 @@ export function format(input) {
 
       return text
     },
+    urlTitle: function () {
+      let urlTitle = text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric characters with '-'
+        .replace(/^-|-$/g, '') // Remove leading and trailing '-'
+        .slice(0, 50) // Limit to 50 characters
+        .trim() // Trim whitespace
+      text = urlTitle
+      return text
+    },
     date: function (showTime) {
       let options
       if (showTime) {
