@@ -48,21 +48,22 @@ const addNewComment = async (comment) => {
 </script>
 
 <template>
-  <section class="flex-col-is-js w-full gap-1">
-    <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
+  <section class="flex-col-is-js w-11/12 mx-auto gap-1">
     <h1 class="text-2xl font-semibold">Comments</h1>
-    <p class="text-sm">Be civil to ensure we all have a Damn Good discussion</p>
+    <p class="text-sm my-1">
+      Be civil to ensure we all have a Damn Good discussion
+    </p>
     <CommentInput v-if="currentUser" @add-new-comment="addNewComment" />
     <div
       v-else
-      class="w-10/12 mx-auto standard-border rounded-lg p-4 flex-col-is-js gap-2"
+      class="w-11/12 mx-auto standard-border rounded-lg p-4 flex-col-is-js gap-2"
     >
       <p>Log in to comment.</p>
       <LoginModal />
     </div>
     <p
       v-if="!articleComments.length"
-      class="text-center w-full my-2 text-xl text-gray-500/80"
+      class="text-center w-full mt-4 text-xl text-gray-500/80"
     >
       No comments yet. Be the first!
     </p>
@@ -70,7 +71,7 @@ const addNewComment = async (comment) => {
       v-for="comment in articleComments"
       :key="comment.id"
       :comment="comment"
-      class="flex-col-is-js w-full px-1"
+      class="flex-col-is-js w-full px-1 mt-1"
     />
   </section>
 </template>

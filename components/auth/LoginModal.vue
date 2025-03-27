@@ -36,6 +36,26 @@ const onSignup = async (event) => {
     console.error('Signup failed:', error)
   }
 }
+
+const googleSignIn = async () => {
+  $fetch('/api/auth/google/get', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        // Handle successful Google sign-in, e.g., close modal or redirect
+      } else {
+        // Handle error
+        console.error('Google sign-in failed:', response.statusText)
+      }
+    })
+    .catch((error) => {
+      console.error('Error during Google sign-in:', error)
+    })
+}
 </script>
 
 <template>
@@ -89,6 +109,9 @@ const onSignup = async (event) => {
           </UFormField>
 
           <UButton type="submit"> Submit </UButton>
+          <UButton @click.prevent="googleSignIn" type="submit">
+            Google
+          </UButton>
           <p class="text-sm">
             Already have an account?
             <span @click="showLogin = true" class="text-blue-500 cursor-pointer"

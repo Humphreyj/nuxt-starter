@@ -82,15 +82,21 @@ onMounted(() => {
         </nav>
         <section v-if="currentUser" class="flex-col-is-js gap-2 pl-2">
           <div class="flex-ic-js gap-2">
-            <UAvatar
-              v-if="currentUser.avatarUrl"
-              :src="currentUser.avatarUrl"
-            />
-            <UIcon
-              v-else
-              name="lucide:user"
-              class="text-2xl text-primary-text"
-            />
+            <NuxtLink
+              :to="`/profile/${currentUser.id}`"
+              class="flex-ic-js gap-2"
+              @click="toggle"
+            >
+              <UAvatar
+                v-if="currentUser.avatarUrl"
+                :src="currentUser.avatarUrl"
+              />
+              <UIcon
+                v-else
+                name="lucide:user"
+                class="text-2xl text-primary-text"
+              />
+            </NuxtLink>
             <span class="text-lg font-semibold">
               {{ currentUser.displayName }}
             </span>

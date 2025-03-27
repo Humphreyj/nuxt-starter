@@ -1,6 +1,7 @@
 import prisma from '~/lib/prisma'
-
+import { nanoid } from 'nanoid'
 export default defineEventHandler(async (event) => {
+  const { sendMail } = useNodeMailer()
   try {
     const body = await readBody(event)
 
@@ -20,7 +21,7 @@ export default defineEventHandler(async (event) => {
 
     // Hash password if provided (only for password-based users)
     const hashedPassword = password ? await hashPassword(password) : null
-
+    const verificationToken = nanoid()
     const user = await prisma.user.create({
       data: {
         email,
@@ -31,15 +32,20 @@ export default defineEventHandler(async (event) => {
         avatarUrl,
         likesReceived: [],
         displayName,
+        verificationToken,
       },
     })
-    await setUserSession(event, {
-      user: {
-        id: user.id,
-        avatarUrl: user.avatarUrl,
-        displayName: user.displayName,
-      },
-      loggedInAt: Date.now(),
+
+    sendMail({
+      subject: 'Verify your email',
+      text: 'Thanks for signing up! Please Verify your email.',
+      to: email,
+      html: `<div>
+    <p>Thanks for signing up! Please verify your email by clicking the button below:</p>
+    <a href="${process.env.BASE_URL}/users/verify-email?token=${verificationToken}">
+      <button>Verify Email</button>
+    </a>
+  </div>`,
     })
 
     return { message: 'User created successfully', user }
