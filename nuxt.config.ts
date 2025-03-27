@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     '@prisma/nuxt',
     '@vueuse/nuxt',
     'nuxt-nodemailer',
+    'nuxt-security',
   ],
   nodemailer: {
     from: 'player1@damngood.games',
@@ -49,10 +50,21 @@ export default defineNuxtConfig({
     preset: 'netlify',
   },
   runtimeConfig: {
+    oauth: {
+      google: {
+        clientId: process.env.NUXT_OAUTH_GOOGLE_CLIENT_ID,
+        clientSecret: process.env.NUXT_OAUTH_GOOGLE_CLIENT_SECRET,
+      },
+    },
     session: {
       maxAge: 60 * 60 * 24, // 1 day
       password: process.env.NUXT_SESSION_PASSWORD || 'default_password', // required password
     },
+  },
+  security: {
+    // headers: {
+    //   crossOriginResourcePolicy: 'cross-origin',
+    // },
   },
   ssr: true,
   ui: {

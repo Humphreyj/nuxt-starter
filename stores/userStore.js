@@ -9,7 +9,6 @@ export const useUserStore = defineStore('userStore', () => {
     if (user.value) {
       currentUser.value = user.value
     }
-    console.log(user.value)
   }
 
   const setCurrentUser = (user) => {
