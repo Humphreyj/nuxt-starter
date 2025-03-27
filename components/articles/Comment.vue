@@ -74,6 +74,7 @@ const showLikesPopover = ref(false)
     <div id="comment-actions" class="flex-ic-js gap-3 p-1">
       <!-- <p class="text-sm" @click="emit('toggle-reply')">Reply</p> -->
       <UIcon
+        v-if="currentUser && currentUser.emailVerified"
         name="lucide:thumbs-up"
         :class="likeButtonClass"
         @click="handleLike"

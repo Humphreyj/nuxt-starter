@@ -25,7 +25,18 @@ export default defineNuxtConfig({
     'nuxt-auth-utils',
     '@prisma/nuxt',
     '@vueuse/nuxt',
+    'nuxt-nodemailer',
   ],
+  nodemailer: {
+    from: 'player1@damngood.games',
+    host: process.env.NUXT_NODEMAILER_HOST,
+    port: process.env.NUXT_NODEMAILER_PORT, // SMTP port
+    secure: false,
+    auth: {
+      user: 'player1@damngood.games',
+      pass: process.env.NUXT_NODEMAILER_AUTH_PASS, // SMTP password
+    },
+  },
   css: ['~/assets/css/main.css'],
   image: {
     cloudflare: {

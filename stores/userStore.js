@@ -9,6 +9,7 @@ export const useUserStore = defineStore('userStore', () => {
     if (user.value) {
       currentUser.value = user.value
     }
+    console.log(user.value)
   }
 
   const setCurrentUser = (user) => {
@@ -62,9 +63,9 @@ export const useUserStore = defineStore('userStore', () => {
     if (result) {
       toast.add({
         color: 'green',
-        title: `Welcome, ${result.user.displayName}!`,
+        title: `Success! Verify your email to complete the signup.`,
       })
-      currentUser.value = result.user
+      // currentUser.value = result.user
     }
   }
 
