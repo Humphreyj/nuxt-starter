@@ -22,10 +22,10 @@ model User {
   emailVerified Boolean  @default(false)
   verificationToken String?
   comments      Comment[] // Relation to the Comment model
-  likesReceived Json     @default("[]") // JSON array of objects
+  likesGiven    Like[]    @relation("LikesGiven") // Likes the user has given
+  likesReceived Like[]    @relation("LikesReceived") // Likes the user has received
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-
 }
 
 model Comment {
@@ -35,7 +35,18 @@ model Comment {
   user       User     @relation(fields: [userId], references: [id])
   userData   Json     @default("{}") // JSON field to store user data
   content    String
-  createdAt  DateTime @default(now())
-  likes      Json     @default("[]") // JSON array of user objects
+  likes      Like[]   // Relation to the Like model for comment likes
   replies    Json     @default("[]") // JSON array of reply objects
+  createdAt  DateTime @default(now())
+}
+
+model Like {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation("LikesGiven", fields: [userId], references: [id]) // User who gave the like
+  commentId  String?  // Nullable for likes on comments
+  comment    Comment? @relation(fields: [commentId], references: [id]) // Comment that received the like
+  receiverId String   // User who received the like
+  receiver   User     @relation("LikesReceived", fields: [receiverId], references: [id]) // Relation to the receiving user
+  createdAt  DateTime @default(now())
 } 

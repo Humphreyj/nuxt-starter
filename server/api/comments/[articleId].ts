@@ -6,6 +6,10 @@ export default defineEventHandler(async (event) => {
     where: {
       articleId: articleId,
     },
+    include: {
+      user: true,
+      likes: true, // Include likes for each comment
+    },
 
     orderBy: {
       createdAt: 'desc', // Order comments by creation date, most recent first

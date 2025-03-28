@@ -11,7 +11,7 @@ const props = defineProps({
   },
 })
 const { currentUser } = storeToRefs(useUserStore())
-const { login, logout, checkForUser } = useUserStore()
+const { logout, checkForUser } = useUserStore()
 const emit = defineEmits(['toggle'])
 const open = ref(props.showSidebar)
 const toggle = () => {
@@ -36,10 +36,10 @@ onMounted(() => {
       <section
         class="w-full min-w-[300px] h-full flex-col-is-js py-2 px-4 pb-12"
       >
-        <img
+        <NuxtImg
           src="https://i.postimg.cc/c4GngCHH/DGGLogo.png"
           alt="Damn Good Logo"
-          class="w-32"
+          class="w-24"
         />
         <nav class="py-4">
           <ul
@@ -86,10 +86,10 @@ onMounted(() => {
               v-if="currentUser.avatarUrl"
               :src="currentUser.avatarUrl"
             />
-            <UIcon
+            <UAvatar
               v-else
-              name="lucide:user"
-              class="text-2xl text-primary-text"
+              icon="lucide:user"
+              class="text-2xl text-primary-text rounded-full border"
             />
             <span class="text-lg font-semibold">
               {{ currentUser.displayName }}

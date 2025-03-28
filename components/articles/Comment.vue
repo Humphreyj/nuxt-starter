@@ -9,37 +9,47 @@ const props = defineProps({
 const emit = defineEmits(['toggle-reply'])
 const { currentUser } = storeToRefs(useUserStore())
 
-const { comment } = toRefs(props)
-
+const comment = ref(props.comment)
 const handleLike = async () => {
+  let newComment
   if (currentUser.value.id === comment.value.userId) {
     return
   }
   // Check if the user has already liked the comment
   let foundUserIndex = comment.value.likes.findIndex(
-    (user) => user.id === currentUser.value.id,
+    (user) => user.userId === currentUser.value.id,
   )
   // If the user has already liked the comment, remove their like
   if (foundUserIndex !== -1) {
     comment.value.likes.splice(foundUserIndex, 1)
+    newComment = await $fetch('/api/comments/' + comment.value.id + '/like', {
+      method: 'DELETE',
+      body: {
+        userId: currentUser.value.id,
+        commentId: comment.value.id,
+        receiverId: comment.value.userId, // Optional: if you want to notify the comment owner
+      },
+    })
+    comment.value = newComment
   } else {
     comment.value.likes.push(currentUser.value)
-  }
-  // put request to update comments
-  const newComment = await $fetch(
-    '/api/comments/' + comment.value.id + '/like',
-    {
-      method: 'PUT',
+    newComment = await $fetch('/api/comments/' + comment.value.id + '/like', {
+      method: 'POST',
       body: {
-        comment: comment.value,
+        userId: currentUser.value.id,
+        commentId: comment.value.id,
+        receiverId: comment.value.userId,
       },
-    },
-  )
+    })
+    comment.value = newComment
+  }
+
+  // Update the comment with the new likes
 }
 
 const likeButtonClass = computed(() => {
   let foundLike = comment.value.likes.findIndex(
-    (user) => user.id === currentUser.value.id,
+    (user) => user.userId === currentUser.value.id,
   )
   if (foundLike !== -1) {
     return 'text-blue-500 mb-1 text-lg cursor-pointer -rotate-6 transition duration-200 ease-in-out drop-shadow-lg shadow shadow-neutral-900'
@@ -47,7 +57,6 @@ const likeButtonClass = computed(() => {
     return 'text-gray-500 mb-1 text-lg cursor-pointer transition duration-200 ease-in-out'
   }
 })
-
 const showLikesPopover = ref(false)
 // const emit = defineEmits()
 </script>
@@ -72,7 +81,7 @@ const showLikesPopover = ref(false)
       {{ comment.content }}
     </p>
     <div id="comment-actions" class="flex-ic-js gap-3 p-1">
-      <!-- <p class="text-sm" @click="emit('toggle-reply')">Reply</p> -->
+      <p class="text-sm" @click="emit('toggle-reply')">Reply</p>
       <UIcon
         v-if="currentUser && currentUser.emailVerified"
         name="lucide:thumbs-up"
