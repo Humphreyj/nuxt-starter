@@ -56,8 +56,11 @@ game.value = gameData.value || {}
         :article-detail="true"
       />
       <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
-      <div class="article-content [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:my-2">
+      <div
+        class="article-content px-1 [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:my-2"
+      >
         <ContentRenderer v-if="page" :value="page.body" />
+        <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
       </div>
       <ArticleComments v-if="page" :article-id="page.articleId" />
     </div>

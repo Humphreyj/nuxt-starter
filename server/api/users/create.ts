@@ -1,5 +1,6 @@
 import prisma from '~/lib/prisma'
 import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid'
 export default defineEventHandler(async (event) => {
   const { sendMail } = useNodeMailer()
   try {
@@ -32,7 +33,6 @@ export default defineEventHandler(async (event) => {
         avatarUrl,
         displayName,
         verificationToken,
-        emailVerified: true,
       },
     })
 
@@ -41,11 +41,11 @@ export default defineEventHandler(async (event) => {
       text: 'Thanks for signing up! Please Verify your email.',
       to: email,
       html: `<div>
-      <p>Thanks for signing up! Please verify your email by clicking the button below:</p>
-      <a href="${process.env.BASE_URL}/users/verify-email?token=${verificationToken}" target="_blank" noopener noreferrer>
-        <button>Verify Email</button>
-      </a>
-    </div>`,
+    <p>Thanks for signing up! Please verify your email by clicking the button below:</p>
+    <a href="${process.env.BASE_URL}/users/verify-email?token=${verificationToken}">
+      <button>Verify Email</button>
+    </a>
+  </div>`,
     })
 
     return { message: 'User created successfully', user }

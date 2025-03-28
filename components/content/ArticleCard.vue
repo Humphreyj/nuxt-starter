@@ -48,7 +48,7 @@ const { title, slug, summary, imageUrl, author, createdAt } = props.article
           params: { slug: slug },
         }"
       >
-        <h3 class="text-xl font-bold text-white border-b w-max">
+        <h3 class="text-xl font-bold text-white border-b w-11/12">
           {{ title }}
         </h3>
         <slot />
