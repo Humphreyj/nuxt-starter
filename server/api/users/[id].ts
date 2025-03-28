@@ -6,6 +6,10 @@ export default defineEventHandler(async (event) => {
     where: {
       id: id,
     },
+    include: {
+      likesReceived: true, // Include related posts if needed
+      comments: true, // Include related comments if needed
+    },
   })
   return user
 })

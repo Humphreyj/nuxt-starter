@@ -43,7 +43,7 @@ const { data: user } = await useFetch(`/api/users/${route.params.id}`, {
             name="lucide:thumbs-up"
             class="text-blue-500 mb-1 text-lg drop-shadow-lg shadow shadow-neutral-900"
           />
-          <p>15 Likes Received</p>
+          <p>{{ user.likesReceived.length }} Likes Received</p>
         </div>
       </div>
     </div>
