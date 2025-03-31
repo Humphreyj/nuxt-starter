@@ -13,22 +13,22 @@ author:
   imageUrl: 'img/users/Dan.png'
 ---
 
-I knew I was going to have a problem with _Schedule 1_ from the moment it started. I didn't have an issue with the charming low poly graphics, or the chill lo-fi soundtrack, I just could instantly tell I was going to play too much of it.
+I knew I was going to have a problem with _Schedule 1_ from the moment I started playing. It wasn’t the charming low-poly graphics or the chill lo-fi soundtrack—those were great. I just instantly knew I was going to play way too much of it.
 
-_Schedule 1_ is a game about selling drugs in a cozy little west coast city. You start with just a few hundred bucks in your pocket after escaping the police and leaving your wheelchair bound uncle to fend for himself. Luckily he is pretty cool about it and never brings it up.
+_Schedule 1_ is a game about selling drugs in a cozy little West Coast city. You start with just a few hundred bucks in your pocket after escaping the police, leaving your wheelchair-bound uncle to fend for himself. Luckily, he’s pretty cool about it and never brings it up.
 
 # Low Poly, High Charm
 
-A lot of low poly games that I've played have a similar art style, but _Schedule 1_ is unique in its character and object design. The buildings and environment are simple, but the character design gives strong _Home Movies_ vibes and not your typical low poly asset pack characters. The objects have a lot of detail and it makes it satisfying to interact with them.
+A lot of low-poly games share a similar art style, but _Schedule 1_ stands out with its unique character and object design. The buildings and environments are simple, but the characters give off strong _Home Movies_ vibes—far from your typical low-poly asset pack look. The objects are detailed and satisfying to interact with, making the world feel alive.
 
-One thing that definitely surprised me was how much fun I had picking up trash in the early game for some seed money.
+One thing that definitely surprised me? How much fun I had picking up trash in the early game just to make some seed money.
 
-# Its just fun
+# It’s Just Fun
 
-The game does not do anything for you. If you need some product, its up to you to create it. You need to grow your herbs from seeds and you are involved in the whole process. You need to pour your soil in the pot, add your seed, cover it, and the water it. Once its grown you need to harvest each bud, then you need to package it.
+The game doesn’t hold your hand. If you need product, you have to create it. Growing herbs from seeds involves every step of the process: pouring soil into a pot, planting the seed, covering it, and watering it. Once it’s grown, you harvest each bud individually, then package it for sale.
 
-Every step creates some trash; a soil bag you, a seed container, and this makes it feel like you did a thing instead of just pressing a button. I thought it would get old, but at nearly 30 hours played, it hasn't, and once you get to a certain income level, you can automate the processes with employees, allowing you to focus on expanding your operation.
+Every step generates some trash—a used soil bag, an empty seed container—which makes it feel like you’re actually doing something instead of just pressing a button. I thought it might get old, but nearly 30 hours in, it hasn’t. Plus, once you reach a certain income level, you can automate the process with employees, letting you focus on expanding your operation.
 
-# Can't wait to see whats next
+# Can’t Wait to See What’s Next
 
-_Schedule 1_ has been immensely successful so far, hitting 400,000 concurrent players on Steam and I think just like my character's net worth, number will go up even more. I can't wait to see what TVGS does next and I'll be waiting impatiently to get my next fix.
+_Schedule 1_ has been immensely successful so far, hitting 400,000 concurrent players on Steam, and I think—just like my character’s net worth—that number is only going up. I can’t wait to see what TVGS does next, and I’ll be waiting impatiently to get my next fix.
