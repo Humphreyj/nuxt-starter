@@ -228,4 +228,28 @@ export const games: GameData[] = [
     },
     articles: [{ type: 'review', id: 'd453d31e-680c-45a2-98b8-e4a93608e677' }],
   },
+  {
+    id: '7fa52ed1-7a52-666e-b5b9-b1c9c37977d0',
+    title: 'Schedule 1',
+    description:
+      'From small-time dope pusher to kingpin - manufacture and distribute a range of drugs throughout the grungy city of Hyland Point. Expand your empire with properties, businesses, employees and more.',
+    review: '',
+    rating: 'Damn Good',
+    price: 19.99,
+    purchase_price: null,
+    release_date: '03-24-2025',
+    publisher: 'TVGS',
+    developer: 'TVGS',
+    tags: ['Co-op', 'Multiplayer', 'Cooking'],
+    platform: 'PC',
+    images: {
+      cover: 'img/schedule1/schedule1Cover.jpg',
+      screenshots: [
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3164500/ss_74961b6f52d7694b12c272c37d69551fc08a1ccb.1920x1080.jpg?t=1742853609',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3164500/ss_a73fcfbee67d95dd53858d0f3fb881181e0e9e8e.1920x1080.jpg?t=1742853609',
+        'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3164500/ss_0ad331417cf9010ae304f9a349806f04b8ce6a41.1920x1080.jpg?t=1742853609',
+      ],
+    },
+    articles: [],
+  },
 ]

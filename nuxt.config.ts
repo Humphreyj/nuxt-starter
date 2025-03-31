@@ -26,7 +26,6 @@ export default defineNuxtConfig({
     '@prisma/nuxt',
     '@vueuse/nuxt',
     'nuxt-nodemailer',
-    'nuxt-security',
   ],
   nodemailer: {
     from: 'player1@damngood.games',
@@ -61,11 +60,7 @@ export default defineNuxtConfig({
       password: process.env.NUXT_SESSION_PASSWORD || 'default_password', // required password
     },
   },
-  security: {
-    // headers: {
-    //   crossOriginResourcePolicy: 'cross-origin',
-    // },
-  },
+
   ssr: true,
   ui: {
     theme: {
