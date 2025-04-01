@@ -1,6 +1,6 @@
 <script setup>
 // Components
-import LoginModal from '../auth/LoginModal.vue'
+
 // Pinia
 import { useUserStore } from '#imports'
 import { useUiStore } from '#imports'
@@ -22,11 +22,11 @@ const toggle = () => {
 }
 let verificationInterval
 const checkVerification = async () => {
-  if (!currentUser.value || currentUser.value.emailVerified) {
+  if (!currentUser.value) {
     clearInterval(verificationInterval)
     return
   }
-  await getUserById(currentUser.value.id)
+  await getUserById(currentUser?.value?.id)
   if (currentUser.value.emailVerified) {
     clearInterval(verificationInterval)
     window.location.reload() // Refresh page

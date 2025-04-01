@@ -57,7 +57,7 @@ game.value = gameData.value || {}
       />
       <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
       <div
-        class="article-content px-1 [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:my-2"
+        class="article-content px-1 [&_h1]:text-2xl [&_h1]:font-bold [&_h1]:my-2 [&_p]:mb-1 [&_p]:text-lg"
       >
         <ContentRenderer v-if="page" :value="page.body" />
         <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>

@@ -31,12 +31,10 @@ const { title, slug, summary, imageUrl, author, createdAt } = props.article
       <NuxtImg
         v-if="imageUrl"
         :src="imageUrl"
+        :alt="`Image for ${title}`"
+        preload
         class="object-contain w-full h-full"
       ></NuxtImg>
-      <div
-        v-else
-        class="bg-[url('img/DGGLogo.png')] bg-contain bg-center bg-repeat h-64"
-      ></div>
     </div>
     <div
       id="article-info"
@@ -48,10 +46,11 @@ const { title, slug, summary, imageUrl, author, createdAt } = props.article
           params: { slug: slug },
         }"
       >
-        <h3 class="text-xl font-bold text-white border-b w-11/12">
-          {{ title }}
-        </h3>
-        <slot />
+        <div class="w-full border-b">
+          <h3 class="text-xl font-bold text-white w-full">
+            {{ title }}
+          </h3>
+        </div>
       </NuxtLink>
       <div class="row-span-2 grid grid-rows-subgrid gap-2">
         <p class="row-start-3 w-[98%] min-h-16">
