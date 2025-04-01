@@ -39,8 +39,13 @@ onMounted(() => {
 })
 watchEffect(() => {
   if (!currentUser?.value?.emailVerified) {
-    verificationInterval = setInterval(checkVerification, 5000) // Check every 5 seconds
+    verificationInterval = setInterval(checkVerification, 30000) // Check every 30 seconds
   } else {
+    clearInterval(verificationInterval)
+  }
+})
+onBeforeUnmount(() => {
+  if (verificationInterval) {
     clearInterval(verificationInterval)
   }
 })
