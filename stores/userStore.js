@@ -5,12 +5,24 @@ export const useUserStore = defineStore('userStore', () => {
 
   const checkForUser = () => {
     const { user } = useUserSession()
-
     if (user.value) {
       currentUser.value = user.value
     }
   }
 
+  const getUserById = async (userId) => {
+    if (!userId) {
+      return null
+    }
+    try {
+      const user = await $fetch(`/api/users/${userId}`)
+      currentUser.value = user
+      return user
+    } catch (error) {
+      console.error('Error fetching user by ID:', error)
+      return null
+    }
+  }
   const setCurrentUser = (user) => {
     currentUser.value = user
   }
@@ -47,7 +59,7 @@ export const useUserStore = defineStore('userStore', () => {
       color: 'green',
       title: 'Creating user...',
     })
-    const result = await $fetch('/api/users/create', {
+    const user = await $fetch('/api/users/create', {
       method: 'POST',
       body: {
         email: newUser.email,
@@ -59,12 +71,13 @@ export const useUserStore = defineStore('userStore', () => {
         avatarUrl: null,
       },
     })
-    if (result) {
+    if (user) {
       toast.add({
         color: 'green',
         title: `Success! Verify your email to complete the signup.`,
       })
       // currentUser.value = result.user
+      setCurrentUser(user)
     }
   }
 
@@ -74,6 +87,7 @@ export const useUserStore = defineStore('userStore', () => {
     checkForUser,
     setCurrentUser,
     signup,
+    getUserById,
   }
   const values = {
     currentUser,

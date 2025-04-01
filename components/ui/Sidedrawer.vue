@@ -3,6 +3,7 @@
 import LoginModal from '../auth/LoginModal.vue'
 // Pinia
 import { useUserStore } from '#imports'
+import { useUiStore } from '#imports'
 
 const props = defineProps({
   showSidebar: {
@@ -11,16 +12,37 @@ const props = defineProps({
   },
 })
 const { currentUser } = storeToRefs(useUserStore())
-const { logout, checkForUser } = useUserStore()
+const { toggleLoginModal } = useUiStore()
+const { logout, checkForUser, getUserById } = useUserStore()
 const emit = defineEmits(['toggle'])
 const open = ref(props.showSidebar)
 const toggle = () => {
   open.value = !open.value
   emit('toggle', open.value)
 }
+let verificationInterval
+const checkVerification = async () => {
+  if (!currentUser.value || currentUser.value.emailVerified) {
+    clearInterval(verificationInterval)
+    return
+  }
+  await getUserById(currentUser.value.id)
+  if (currentUser.value.emailVerified) {
+    clearInterval(verificationInterval)
+    window.location.reload() // Refresh page
+  }
+  return
+}
 
 onMounted(() => {
   checkForUser()
+})
+watchEffect(() => {
+  if (!currentUser?.value?.emailVerified) {
+    verificationInterval = setInterval(checkVerification, 5000) // Check every 5 seconds
+  } else {
+    clearInterval(verificationInterval)
+  }
 })
 </script>
 
@@ -104,7 +126,7 @@ onMounted(() => {
           <UButton class="text-xs" @click="logout">Logout</UButton>
         </section>
         <section v-else>
-          <LoginModal />
+          <UButton class="text-xs" @click="toggleLoginModal">Login</UButton>
         </section>
       </section>
     </template>

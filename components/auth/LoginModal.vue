@@ -3,6 +3,7 @@
 // const props = defineProps({})
 // const emit = defineEmits()
 import { useUserStore } from '#imports'
+import { useUiStore } from '#imports'
 
 const credentials = reactive({
   email: '',
@@ -10,6 +11,7 @@ const credentials = reactive({
   displayName: null,
 })
 const showLogin = ref(true)
+const { showLoginModal } = storeToRefs(useUiStore())
 
 const onSubmit = async (event) => {
   event.preventDefault()
@@ -17,6 +19,11 @@ const onSubmit = async (event) => {
   const { login } = useUserStore()
   try {
     await login(credentials)
+    showLoginModal.value = false // Close the modal on successful login
+    credentials.email = ''
+    credentials.password = ''
+    credentials.displayName = null // Reset displayName for signup
+
     // Handle successful login, e.g., close modal or redirect
   } catch (error) {
     // Handle login error, e.g., show error message
@@ -30,6 +37,11 @@ const onSignup = async (event) => {
   credentials.email = credentials.email.trim().toLowerCase()
   try {
     await signup(credentials)
+    showLoginModal.value = false // Close the modal on successful login
+    credentials.email = ''
+    credentials.password = ''
+    credentials.displayName = null // Reset displayName for signup
+
     // Handle successful signup, e.g., close modal or redirect
   } catch (error) {
     // Handle signup error, e.g., show error message
@@ -46,6 +58,7 @@ const googleSignIn = async () => {
   })
     .then((response) => {
       if (response.status === 200) {
+        console.log('google', response)
         // Handle successful Google sign-in, e.g., close modal or redirect
       } else {
         // Handle error
@@ -59,7 +72,12 @@ const googleSignIn = async () => {
 </script>
 
 <template>
-  <UModal>
+  <UModal
+    v-model:open="showLoginModal"
+    :close-on-esc="true"
+    :close-on-backdrop="true"
+    class="w-full max-w-md"
+  >
     <UButton label="Login" color="neutral" variant="subtle" />
 
     <template #content>

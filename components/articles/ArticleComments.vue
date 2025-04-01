@@ -2,8 +2,10 @@
 // Components
 import CommentInput from './CommentInput.vue'
 import CommentBox from './CommentBox.vue'
-import { useUserStore } from '#imports'
 import LoginModal from '../auth/LoginModal.vue'
+// Pinia
+import { useUserStore } from '#imports'
+import { useUiStore } from '#imports'
 
 const props = defineProps({
   articleId: {
@@ -13,6 +15,7 @@ const props = defineProps({
 })
 
 const { currentUser } = storeToRefs(useUserStore())
+const { toggleLoginModal } = useUiStore()
 const { data: comments } = await useFetch(`/api/comments/${props.articleId}`)
 const articleComments = ref(comments || [])
 // const newComment = ref('')
@@ -59,7 +62,7 @@ const addNewComment = async (comment) => {
       class="w-11/12 mx-auto standard-border rounded-lg p-4 flex-col-is-js gap-2"
     >
       <p>Log in to comment.</p>
-      <LoginModal />
+      <UButton class="text-xs" @click="toggleLoginModal">Login</UButton>
     </div>
     <p
       v-if="!articleComments.length"

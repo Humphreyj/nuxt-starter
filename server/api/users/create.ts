@@ -1,6 +1,6 @@
 import prisma from '~/lib/prisma'
 import { nanoid } from 'nanoid'
-import { nanoid } from 'nanoid'
+
 export default defineEventHandler(async (event) => {
   const { sendMail } = useNodeMailer()
   try {
@@ -35,6 +35,16 @@ export default defineEventHandler(async (event) => {
         verificationToken,
       },
     })
+    await setUserSession(event, {
+      user: {
+        id: user.id,
+        email: user.email,
+        avatarUrl: user.avatarUrl,
+        displayName: user.displayName,
+        emailVerified: user.emailVerified,
+      },
+      loggedInAt: Date.now(),
+    })
 
     sendMail({
       subject: 'Verify your email',
@@ -48,7 +58,7 @@ export default defineEventHandler(async (event) => {
   </div>`,
     })
 
-    return { message: 'User created successfully', user }
+    return user
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : 'An unknown error occurred'

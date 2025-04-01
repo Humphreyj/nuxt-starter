@@ -1,17 +1,19 @@
 import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore('userStore', () => {
+export const useUiStore = defineStore('uiStore', () => {
+  const showLoginModal = ref(false)
   const showSidebar = ref(false)
 
+  const toggleLoginModal = () => {
+    showLoginModal.value = !showLoginModal.value
+  }
+
   const actions = {
-    login,
-    logout,
-    checkForUser,
-    setCurrentUser,
-    signup,
+    toggleLoginModal,
   }
   const values = {
     showSidebar,
+    showLoginModal,
   }
   return { ...actions, ...values }
 })

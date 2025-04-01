@@ -72,7 +72,9 @@ const resendVerification = async () => {
           Resend Verification
         </UButton>
       </div>
-      <p class="text-gray-500/80">Check your email and do what it says.</p>
+      <p v-if="verificationSent" class="text-gray-500/80">
+        Check your email and do what it says.
+      </p>
     </div>
   </form>
 </template>

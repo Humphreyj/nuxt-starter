@@ -30,5 +30,5 @@ export default defineEventHandler(async (event) => {
     loggedInAt: Date.now(),
   })
 
-  return sendRedirect(event, '/auth/login', 302)
+  return sendRedirect(event, '/auth/verified', 302)
 })
