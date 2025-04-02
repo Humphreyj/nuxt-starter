@@ -1,12 +1,14 @@
 <script setup>
 // Components
-// const props = defineProps({})
-// const emit = defineEmits()
-// Pinia
 
-import { handleFormat } from '#imports'
-const route = useRoute()
+// Pinia
 import { useUserStore } from '#imports'
+// Utils
+import { handleFormat } from '#imports'
+
+// Create formatter (English).
+
+const route = useRoute()
 const { currentUser } = storeToRefs(useUserStore())
 
 const { data: user } = await useFetch(`/api/users/${route.params.id}`, {
@@ -18,7 +20,10 @@ const { data: user } = await useFetch(`/api/users/${route.params.id}`, {
 <template>
   <main>
     <h2 class="text-3xl text-center font-bold">Profile</h2>
-    <div v-if="currentUser" class="w-8/12 mx-auto rounded-lg flex-col-ic-jc">
+    <div
+      v-if="currentUser"
+      class="w-11/12 md:w-8/12 mx-auto rounded-lg flex-col-ic-jc"
+    >
       <div
         class="mt-4 p-4 bg-header w-full rounded-lg shadow-md flex-col-ic-jc gap-2"
       >
@@ -43,9 +48,15 @@ const { data: user } = await useFetch(`/api/users/${route.params.id}`, {
             name="lucide:thumbs-up"
             class="text-blue-500 mb-1 text-lg drop-shadow-lg shadow shadow-neutral-900"
           />
-          <p>{{ user.likesReceived.length }} Likes Received</p>
+          <p>{{ user.likesReceived?.length }} Likes Received</p>
         </div>
+        <ProfileCommentHistory
+          v-if="user.comments && user.comments.length"
+          :comments="user.comments"
+          class="mt-4 w-full"
+        />
       </div>
     </div>
+    <USkeleton v-else class="w-8/12 mx-auto rounded-lg h-48 mt-4" />
   </main>
 </template>

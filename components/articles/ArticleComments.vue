@@ -2,13 +2,20 @@
 // Components
 import CommentInput from './CommentInput.vue'
 import CommentBox from './CommentBox.vue'
-import LoginModal from '../auth/LoginModal.vue'
 // Pinia
 import { useUserStore } from '#imports'
 import { useUiStore } from '#imports'
 
 const props = defineProps({
   articleId: {
+    type: String,
+    required: true,
+  },
+  articleTitle: {
+    type: String,
+    required: true,
+  },
+  articleSlug: {
     type: String,
     required: true,
   },
@@ -21,7 +28,6 @@ const articleComments = ref(comments || [])
 // const newComment = ref('')
 
 const addNewComment = async (comment) => {
-  console.log('addNewComment', comment)
   if (comment.trim() === '') return
   // Here you would typically send the new comment to your API
   // For now, we'll just add it to the local state
@@ -33,16 +39,16 @@ const addNewComment = async (comment) => {
     userData: user,
     createdAt: new Date().toISOString(),
     likes: [],
-    replies: [],
   })
-  const result = await $fetch('/api/comments/:articleId', {
+  await $fetch('/api/comments/:articleId', {
     method: 'POST',
     body: {
       articleId: props.articleId,
+      articleTitle: props.articleTitle,
+      articleSlug: props.articleSlug,
       content: comment,
       userData: user,
       likes: [],
-      replies: [],
     },
   })
 }
@@ -51,7 +57,7 @@ const addNewComment = async (comment) => {
 </script>
 
 <template>
-  <section class="flex-col-is-js w-11/12 mx-auto gap-1">
+  <section id="article-comments" class="flex-col-is-js w-11/12 mx-auto gap-1">
     <h1 class="text-2xl font-semibold">Comments</h1>
     <p class="text-sm my-1">
       Be civil to ensure we all have a Damn Good discussion

@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     from: 'player1@damngood.games',
     host: process.env.NUXT_NODEMAILER_HOST,
     port: process.env.NUXT_NODEMAILER_PORT, // SMTP port
-    secure: false,
+    secure: process.env.NUXT_SMTP_SECURE,
     auth: {
       user: 'player1@damngood.games',
       pass: process.env.NUXT_NODEMAILER_AUTH_PASS, // SMTP password

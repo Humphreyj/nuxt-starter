@@ -32,7 +32,11 @@ const handleReply = () => {
 
 <template>
   <div class="flex-col-is-js border-b border-gray-500/80 w-full px-1">
-    <Comment :comment="comment" @toggle-reply="toggleReplyInput" />
+    <Comment
+      :id="comment.id"
+      :comment="comment"
+      @toggle-reply="toggleReplyInput"
+    />
     <UInput
       v-if="showReplyInput"
       v-model="newReply"
@@ -45,7 +49,7 @@ const handleReply = () => {
     />
     <div class="flex-col-is-js w-full pl-2 px-1">
       <Comment
-        v-if="comment.replies.length"
+        v-if="comment.replies?.length"
         v-for="reply in comment.replies"
         :key="reply.id"
         :comment="reply"

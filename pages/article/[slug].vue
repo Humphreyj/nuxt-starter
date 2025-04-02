@@ -62,7 +62,12 @@ game.value = gameData.value || {}
         <ContentRenderer v-if="page" :value="page.body" />
         <div class="w-full h-[2px] bg-gray-500/80 my-2"></div>
       </div>
-      <ArticleComments v-if="page" :article-id="page.articleId" />
+      <ArticleComments
+        v-if="page"
+        :article-id="page.articleId"
+        :article-title="title"
+        :article-slug="slug"
+      />
     </div>
   </article>
 </template>

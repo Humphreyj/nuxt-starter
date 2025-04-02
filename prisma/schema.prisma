@@ -11,43 +11,47 @@ datasource db {
 }
 
 model User {
-  id            String   @id @default(uuid())
-  email         String   @unique
-  password      String? // Nullable for OAuth users
-  name          String?
-  displayName   String?
-  avatarUrl     String?
-  provider      String? // Nullable for password-based users
-  providerId    String?  @unique // Nullable for password-based users
-  emailVerified Boolean  @default(false)
+  id               String    @id @default(uuid())
+  email            String    @unique
+  password         String?   // Nullable for OAuth users
+  name             String?
+  displayName      String?
+  avatarUrl        String?
+  provider         String?   // Nullable for password-based users
+  providerId       String?   @unique // Nullable for password-based users
+  emailVerified    Boolean   @default(false)
   verificationToken String?
-  comments      Comment[] // Relation to the Comment model
-  likesGiven    Like[]    @relation("LikesGiven") // Likes the user has given
-  likesReceived Like[]    @relation("LikesReceived") // Likes the user has received
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
+  comments         Comment[] // Relation to the Comment model
+  likesGiven       Like[]    @relation("LikesGiven") // Likes the user has given
+  likesReceived    Like[]    @relation("LikesReceived") // Likes the user has received
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 }
 
 model Comment {
-  id         String   @id @default(uuid())
-  articleId  String
-  userId     String
-  user       User     @relation(fields: [userId], references: [id])
-  userData   Json     @default("{}") // JSON field to store user data
-  content    String
-  likes      Like[]   // Relation to the Like model for comment likes
-  replies    Json     @default("[]") // JSON array of reply objects
-  createdAt  DateTime @default(now())
+  id           String    @id @default(uuid())
+  articleId    String
+  articleTitle String?   // Title of the article being commented on
+  articleSlug  String?
+  userId       String
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userData     Json      @default("{}") // JSON field to store user data
+  content      String
+  edited       Boolean   @default(false)
+  likes        Like[]    // Relation to the Like model for comment likes
+  parentId     String?   // ID of the parent comment (null for top-level comments)
+  parent       Comment?  @relation("CommentReplies", fields: [parentId], references: [id], onDelete: SetNull)
+  replies      Comment[] @relation("CommentReplies") // Direct relation to child comments
+  createdAt    DateTime  @default(now())
 }
 
 model Like {
-  id         String   @id @default(uuid())
+  id         String    @id @default(uuid())
   userId     String
-  user       User     @relation("LikesGiven", fields: [userId], references: [id]) // User who gave the like
-  commentId  String?  // Nullable for likes on comments
-  comment    Comment? @relation(fields: [commentId], references: [id]) // Comment that received the like
-  receiverId String   // User who received the like
-  receiver   User     @relation("LikesReceived", fields: [receiverId], references: [id]) // Relation to the receiving user
-  createdAt  DateTime @default(now())
-} 
+  user       User      @relation("LikesGiven", fields: [userId], references: [id], onDelete: Cascade) // User who gave the like
+  commentId  String?   // Nullable for likes on comments
+  comment    Comment?  @relation(fields: [commentId], references: [id], onDelete: Cascade) // Comment that received the like
+  receiverId String
+  receiver   User      @relation("LikesReceived", fields: [receiverId], references: [id], onDelete: Cascade) // Relation to the receiving user
+  createdAt  DateTime  @default(now())
+}

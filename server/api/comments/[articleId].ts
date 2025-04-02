@@ -9,6 +9,7 @@ export default defineEventHandler(async (event) => {
     include: {
       user: true,
       likes: true, // Include likes for each comment
+      replies: true,
     },
 
     orderBy: {

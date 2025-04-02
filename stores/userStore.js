@@ -45,8 +45,8 @@ export const useUserStore = defineStore('userStore', () => {
   }
   const logout = () => {
     const { clear } = useUserSession()
-    currentUser.value = null
     clear()
+    currentUser.value = null
     toast.add({
       color: 'green',
       title: 'User logged out successfully',
