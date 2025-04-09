@@ -33,6 +33,7 @@ model Comment {
   articleId    String
   articleTitle String?   // Title of the article being commented on
   articleSlug  String?
+  articleImage String?
   userId       String
   user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   userData     Json      @default("{}") // JSON field to store user data
@@ -46,12 +47,13 @@ model Comment {
 }
 
 model Like {
-  id         String    @id @default(uuid())
-  userId     String
-  user       User      @relation("LikesGiven", fields: [userId], references: [id], onDelete: Cascade) // User who gave the like
-  commentId  String?   // Nullable for likes on comments
-  comment    Comment?  @relation(fields: [commentId], references: [id], onDelete: Cascade) // Comment that received the like
-  receiverId String
-  receiver   User      @relation("LikesReceived", fields: [receiverId], references: [id], onDelete: Cascade) // Relation to the receiving user
-  createdAt  DateTime  @default(now())
+  id              String    @id @default(uuid())
+  userId          String
+  user            User      @relation("LikesGiven", fields: [userId], references: [id], onDelete: Cascade) // User who gave the like
+  displayName     String?
+  commentId       String?   // Nullable for likes on comments
+  comment         Comment?  @relation(fields: [commentId], references: [id], onDelete: Cascade) // Comment that received the like
+  receiverId      String
+  receiver        User      @relation("LikesReceived", fields: [receiverId], references: [id], onDelete: Cascade) // Relation to the receiving user
+  createdAt       DateTime  @default(now())
 }

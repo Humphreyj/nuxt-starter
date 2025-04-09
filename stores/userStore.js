@@ -3,6 +3,8 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore('userStore', () => {
   const currentUser = ref(null)
 
+  const selectedUser = ref(null) // For selecting a user in UI, e.g., for admin actions
+
   const checkForUser = () => {
     const { user } = useUserSession()
     if (user.value) {
@@ -23,8 +25,31 @@ export const useUserStore = defineStore('userStore', () => {
       return null
     }
   }
+
+  const refreshUserData = async () => {
+    if (currentUser.value?.id) {
+      return await getUserById(currentUser.value.id)
+    }
+    return null
+  }
+
   const setCurrentUser = (user) => {
     currentUser.value = user
+  }
+  const setSelectedUser = (user) => {
+    const { showProfileSlideover } = storeToRefs(useUiStore())
+    if (!user) {
+      selectedUser.value = null
+      return
+    }
+    if (currentUser.value && currentUser.value.id === user.id) {
+      // Don't set the selected user if it's the same as the current user
+      // This avoids unnecessary UI updates
+      return
+    }
+    // Ensure we set the selected user correctly
+    selectedUser.value = user
+    showProfileSlideover.value = true // Automatically show the profile slideover when a user is selected
   }
   const toast = useToast()
   const login = async (credentials) => {
@@ -86,11 +111,14 @@ export const useUserStore = defineStore('userStore', () => {
     logout,
     checkForUser,
     setCurrentUser,
+    setSelectedUser, // For setting the selected user in UI
+    refreshUserData,
     signup,
     getUserById,
   }
   const values = {
     currentUser,
+    selectedUser,
   }
   return { ...actions, ...values }
 })

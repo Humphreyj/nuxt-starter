@@ -20,35 +20,35 @@ const toggle = () => {
   open.value = !open.value
   emit('toggle', open.value)
 }
-let verificationInterval
-const checkVerification = async () => {
-  if (!currentUser.value) {
-    clearInterval(verificationInterval)
-    return
-  }
-  await getUserById(currentUser?.value?.id)
-  if (currentUser.value.emailVerified) {
-    clearInterval(verificationInterval)
-    window.location.reload() // Refresh page
-  }
-  return
-}
+// let verificationInterval
+// const checkVerification = async () => {
+//   if (!currentUser.value) {
+//     clearInterval(verificationInterval)
+//     return
+//   }
+//   await getUserById(currentUser?.value?.id)
+//   if (currentUser.value.emailVerified) {
+//     clearInterval(verificationInterval)
+//     window.location.reload() // Refresh page
+//   }
+//   return
+// }
 
 onMounted(() => {
   checkForUser()
 })
-watchEffect(() => {
-  if (!currentUser?.value?.emailVerified) {
-    verificationInterval = setInterval(checkVerification, 30000) // Check every 30 seconds
-  } else {
-    clearInterval(verificationInterval)
-  }
-})
-onBeforeUnmount(() => {
-  if (verificationInterval) {
-    clearInterval(verificationInterval)
-  }
-})
+// watchEffect(() => {
+//   if (!currentUser?.value?.emailVerified) {
+//     verificationInterval = setInterval(checkVerification, 30000) // Check every 30 seconds
+//   } else {
+//     clearInterval(verificationInterval)
+//   }
+// })
+// onUnmounted(() => {
+//   if (verificationInterval) {
+//     clearInterval(verificationInterval)
+//   }
+// })
 </script>
 
 <template>

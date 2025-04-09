@@ -8,6 +8,7 @@ const props = defineProps({
 })
 const emit = defineEmits(['toggle-reply'])
 const { currentUser } = storeToRefs(useUserStore())
+const { setSelectedUser } = useUserStore()
 
 const comment = ref(props.comment)
 const handleLike = async () => {
@@ -59,11 +60,22 @@ const likeButtonClass = computed(() => {
 })
 const showLikesPopover = ref(false)
 // const emit = defineEmits()
+const handleUserSelect = (user) => {
+  if (currentUser.value && currentUser.value.id === user.id) {
+    // Don't set the selected user if it's the current user
+    return
+  }
+  setSelectedUser(user) // This will set the selected user in the store
+}
 </script>
 
 <template>
   <div class="flex-col-is-js w-full p-1">
-    <div id="comment-author" class="flex-ic-js gap-3 my-1">
+    <div
+      id="comment-author"
+      class="flex-ic-js gap-3 my-1"
+      @click="handleUserSelect(comment.userData)"
+    >
       <UAvatar
         v-if="comment.userData.avatarUrl"
         :src="comment.userData.avatarUrl"
@@ -81,7 +93,7 @@ const showLikesPopover = ref(false)
       {{ comment.content }}
     </p>
     <div id="comment-actions" class="flex-ic-js gap-3 p-1">
-      <p class="text-sm" @click="emit('toggle-reply')">Reply</p>
+      <!-- <p class="text-sm" @click="emit('toggle-reply')">Reply</p> -->
       <UIcon
         v-if="currentUser && currentUser.emailVerified"
         name="lucide:thumbs-up"

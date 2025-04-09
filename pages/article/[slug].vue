@@ -67,6 +67,7 @@ game.value = gameData.value || {}
         :article-id="page.articleId"
         :article-title="title"
         :article-slug="slug"
+        :article-image="imageUrl"
       />
     </div>
   </article>

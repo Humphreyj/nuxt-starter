@@ -19,13 +19,18 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  articleImage: {
+    type: String,
+    required: true,
+  },
 })
 
 const { currentUser } = storeToRefs(useUserStore())
 const { toggleLoginModal } = useUiStore()
 const { data: comments } = await useFetch(`/api/comments/${props.articleId}`)
-const articleComments = ref(comments || [])
+const articleComments = ref(comments.value || [])
 // const newComment = ref('')
+console.log('articleComments', articleComments.value)
 
 const addNewComment = async (comment) => {
   if (comment.trim() === '') return
@@ -46,6 +51,7 @@ const addNewComment = async (comment) => {
       articleId: props.articleId,
       articleTitle: props.articleTitle,
       articleSlug: props.articleSlug,
+      articleImage: props.articleImage,
       content: comment,
       userData: user,
       likes: [],

@@ -32,6 +32,7 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.35",
     "nodemailer": "^6.10.0",
     "nuxt-nodemailer": "^1.1.2"
   }
