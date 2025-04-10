@@ -2,6 +2,9 @@
 // Components
 import GameTag from '~/components/games/GameTag.vue'
 import ScreenshotCarousel from '~/components/games/ScreenshotCarousel.vue'
+import GameRatings from '~/components/games/GameRatings.vue'
+// Pinia
+import { useUserStore } from '#imports'
 // Utils
 import { handleFormat } from '#imports'
 // const props = defineProps({})
@@ -9,6 +12,7 @@ import { handleFormat } from '#imports'
 const { id } = useRoute().params
 const { data } = await useFetch(`/api/games/${id}`)
 const route = useRoute()
+const { currentUser } = storeToRefs(useUserStore())
 const game = ref(data.value || {})
 const { title, tags, release_date, price, platform, description, images } =
   game.value
@@ -74,6 +78,9 @@ const toggleScreenshotsCarousel = () => {
         </div>
       </div>
     </section>
+
+    <GameRatings :game-id="id" />
+
     <section id="review" class="flex-col-is-js w-full">
       <p class="my-2">{{ description }}</p>
       <h3 class="font-bold text-xl">Articles</h3>

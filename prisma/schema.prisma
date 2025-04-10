@@ -24,6 +24,7 @@ model User {
   comments         Comment[] // Relation to the Comment model
   likesGiven       Like[]    @relation("LikesGiven") // Likes the user has given
   likesReceived    Like[]    @relation("LikesReceived") // Likes the user has received
+  gameRatings      GameRating[] // Game ratings given by this user
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 }
@@ -56,4 +57,30 @@ model Like {
   receiverId      String
   receiver        User      @relation("LikesReceived", fields: [receiverId], references: [id], onDelete: Cascade) // Relation to the receiving user
   createdAt       DateTime  @default(now())
+}
+
+
+model GameRating {
+  id            String    @id @default(uuid())
+  gameId        String
+  title         String?
+  userId        String    // ID of the user giving the rating
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  isRecommended Boolean
+  review        UserReview? 
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  @@unique([userId, gameId]) // Ensures a user can only rate a game once
+}
+
+model UserReview {
+  id            String     @id @default(uuid())
+  gameRatingId  String     @unique // One-to-one relation with GameRating
+  gameRating    GameRating @relation(fields: [gameRatingId], references: [id], onDelete: Cascade)
+  content       String     // The actual review text
+  edited        Boolean    @default(false)
+  hoursPlayed   Float?     // Optional info about hours played
+  purchaseType  String?    // How the game was acquired (e.g., "Steam", "GamePass")
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
 }
