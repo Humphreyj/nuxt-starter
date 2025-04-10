@@ -85,23 +85,56 @@ const totalRecommendations = computed(() => {
 </script>
 
 <template>
-  <section id="game-ratings" class="w-full flex-col-ic-jc">
-    <p>Recommended?</p>
-    <p>
+  <section id="game-ratings" class="w-full flex-col-ic-jc gap-1 mt-2">
+    <p v-if="currentUser" class="text-sm">
+      Would you recommend this to your best homie?
+    </p>
+    <p class="text-xs">
       {{ totalRecommendations.recommended }}
       {{ totalRecommendations.recommended > 1 ? 'players' : 'player' }}
       {{ totalRecommendations.recommended > 1 ? 'recommend' : 'recommends' }}
+      this to their best homie.
     </p>
-    <p v-if="userHasRatedGame">
+    <p class="text-xs" v-if="totalRecommendations.notRecommended">
+      {{ totalRecommendations.notRecommended }}
+      {{ totalRecommendations.notRecommended > 1 ? 'players' : 'player' }}
+      {{ totalRecommendations.notRecommended > 1 ? 'do not' : 'does not' }}
+      recommend this to their best homie.
+    </p>
+    <!-- <p v-if="userHasRatedGame">
       {{
         userRating
           ? 'You recommend this game'
           : 'You do not recommend this game'
       }}
-    </p>
+    </p> -->
     <div v-if="currentUser" class="flex-ic-js gap-2">
-      <UButton @click="handleRating(true)"> Yes </UButton>
-      <UButton @click="handleRating(false)"> No </UButton>
+      <UButton
+        icon="lucide:thumbs-up"
+        @click="handleRating(true)"
+        size="xs"
+        class="text-sm"
+        :class="
+          userRating
+            ? 'bg-tag-color/30 text-tag-color border border-tag-color/40'
+            : ''
+        "
+      >
+        Yes
+      </UButton>
+      <UButton
+        icon="lucide:thumbs-down"
+        @click="handleRating(false)"
+        size="xs"
+        class="text-sm"
+        :class="
+          !userRating
+            ? 'bg-tag-color/30 text-tag-color border border-tag-color/40'
+            : ''
+        "
+      >
+        No
+      </UButton>
     </div>
   </section>
 </template>
