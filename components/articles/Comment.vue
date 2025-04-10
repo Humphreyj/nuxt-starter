@@ -29,6 +29,7 @@ const handleLike = async () => {
         userId: currentUser.value.id,
         commentId: comment.value.id,
         receiverId: comment.value.userId, // Optional: if you want to notify the comment owner
+        displayName: currentUser.value.displayName,
       },
     })
     comment.value = newComment
@@ -40,6 +41,7 @@ const handleLike = async () => {
         userId: currentUser.value.id,
         commentId: comment.value.id,
         receiverId: comment.value.userId,
+        displayName: currentUser.value.displayName,
       },
     })
     comment.value = newComment

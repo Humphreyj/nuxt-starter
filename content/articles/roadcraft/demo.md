@@ -15,12 +15,18 @@ author:
 
 # The Deforestation Simulator
 
-Sometimes you need a tree gone, sometimes you just suck at driving.
+Sometimes you need a tree gone. Sometimes… you just suck at driving.
+
+In this chaotic, oddly relaxing vehicle-and-road-building sim, trees are more obstacle than resource. You'll knock over entire forests before you figure out how to make a decent turn. Precision driving? Nah. This is about carving your own path—usually straight through nature.
 
 # Have an impact on the world.
 
-Leave your mark on the landscape, and the environment.
+Roadcraft doesn’t just let you build roads—it begs you to leave a mark. Every poorly planned curve, every half-baked shortcut, every overambitious bridge project that collapses into the river below... it all adds up to a beautifully destroyed landscape.
+
+Your impact on the environment is immediate and permanent. Roads cut deep into the land. Hills get flattened. Forests vanish. And you feel it—because in Roadcraft, the world doesn't reset. You’re terraforming with reckless abandon, one poorly executed U-turn at a time.
 
 # I am excited to play more.
 
-I played the Roadcraft demo for about 12 hours, probably the longest I had ever spent on a demo.
+I played the Roadcraft demo for about 12 hours, which is probably the longest I’ve ever spent on a demo. And honestly? I’m not even mad. There’s something genuinely satisfying about chaining together janky road segments, watching a truck barely survive the journey, and realizing, "Yeah, that works."
+
+It’s one part puzzle game, one part creative sandbox, and one part accidental eco-horror story. And I can’t wait to play more.

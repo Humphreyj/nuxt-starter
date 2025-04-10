@@ -33,7 +33,7 @@ const timeAgo = new TimeAgo('en-US')
       <div class="flex-ic-js gap-2">
         <NuxtImg
           :src="comment.articleImage"
-          class="w-1/8 bg-gray-400 rounded-md"
+          class="w-1/8 h-1/8 bg-gray-400 rounded-md"
         ></NuxtImg>
         <NuxtLink
           :to="{

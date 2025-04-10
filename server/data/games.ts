@@ -252,4 +252,28 @@ export const games: GameData[] = [
     },
     articles: [],
   },
+  {
+    id: 'b7c24f38-9a15-482d-a80c-36e971c78d23',
+    title: 'Helldivers 2',
+    description:
+      "The galaxy is under threat and needs Super Earth's help. Helldivers 2 is a co-op shooter where you and your friends fight together against a hostile alien threat.",
+    review: '',
+    rating: 'Amazing',
+    price: 39.99,
+    purchase_price: null,
+    release_date: '02-08-2024',
+    publisher: 'PlayStation PC LLC',
+    developer: 'Arrowhead Game Studios AB',
+    tags: ['Co-op', 'Multiplayer', 'Third-Person Shooter', 'Action'],
+    platform: 'PC',
+    images: {
+      cover: 'img/helldivers2/hd2Cover.jpg',
+      screenshots: [
+        'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/ss_0c79f56fc7be1bd0102f2ca1c92c8f0900daf4fb.600x338.jpg?t=1741137570',
+        'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/ss_3b08a991443164a65f84f1bd9f1363e6c2ec4581.600x338.jpg?t=1741137570',
+        'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/553850/ss_5dde7ea6922800dfece2a3a319cb68e4f6f67949.600x338.jpg?t=1741137570',
+      ],
+    },
+    articles: [],
+  },
 ]
